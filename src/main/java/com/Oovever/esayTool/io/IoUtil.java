@@ -4,6 +4,12 @@ import com.Oovever.esayTool.util.CommonUtil;
 import org.junit.Assert;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.WritableByteChannel;
+import java.nio.charset.Charset;
 
 /**
  * @author OovEver
@@ -136,4 +142,144 @@ public class IoUtil {
         }
         return size;
     }
+    /*
+     * 本方法不会关闭流
+     *
+     * @param in 输入流
+     * @param out 输出流
+     * @param bufferSize 缓存大小
+     * @param streamProgress 进度条
+     * @return 传输的byte数
+     * @throws IORuntimeException IO异常
+     */
+    public static long copyByNIO(InputStream in, OutputStream out, int bufferSize, StreamProgress streamProgress) throws IORuntimeException {
+        return copy(Channels.newChannel(in), Channels.newChannel(out), bufferSize, streamProgress);
+    }
+    /**
+     * 拷贝文件流，使用NIO
+     *
+     * @param in 输入
+     * @param out 输出
+     * @return 拷贝的字节数
+     * @throws IORuntimeException IO异常
+     */
+    public static long copy(FileInputStream in, FileOutputStream out) throws IORuntimeException {
+        CommonUtil.notNull(in, "FileInputStream is null!");
+        CommonUtil.notNull(out, "FileOutputStream is null!");
+
+        final FileChannel inChannel  = in.getChannel();
+        final FileChannel outChannel = out.getChannel();
+
+        try {
+            return inChannel.transferTo(0, inChannel.size(), outChannel);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+    /**
+     * 拷贝流，使用NIO，不会关闭流
+     *
+     * @param in {@link ReadableByteChannel}
+     * @param out {@link WritableByteChannel}
+     * @param bufferSize 缓冲大小，如果小于等于0，使用默认
+     * @param streamProgress {@link StreamProgress}进度处理器
+     * @return 拷贝的字节数
+     * @throws IORuntimeException IO异常
+     */
+    public static long copy(ReadableByteChannel in, WritableByteChannel out, int bufferSize, StreamProgress streamProgress) throws IORuntimeException {
+        CommonUtil.notNull(in, "InputStream is null !");
+        CommonUtil.notNull(out, "OutputStream is null !");
+
+        ByteBuffer byteBuffer = ByteBuffer.allocate(bufferSize <= 0 ? DEFAULT_BUFFER_SIZE : bufferSize);
+        long       size       = 0;
+        if (null != streamProgress) {
+            streamProgress.start();
+        }
+        try {
+            while (in.read(byteBuffer) != EOF) {
+                byteBuffer.flip();// 读写转化
+                size += out.write(byteBuffer);
+                byteBuffer.clear();
+                if (null != streamProgress) {
+                    streamProgress.progress(size);
+                }
+            }
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+        if (null != streamProgress) {
+            streamProgress.finish();
+        }
+
+        return size;
+    }
+
+    /**
+     * 获取一个bufferedReader读取器
+     * @param inputStream 输入流
+     * @param charsetName 字符集名称
+     * @return bufferedReader对象
+     */
+    public static BufferedReader getReader(InputStream inputStream, String charsetName) {
+        return getReader(inputStream, Charset.forName(charsetName));
+    }
+    /**
+     * 获取一个bufferedReader读取器
+     * @param inputStream 输入流
+     * @param charsetName 字符集名称
+     * @return bufferedReader对象
+     */
+    public static BufferedReader getReader(InputStream inputStream, Charset charsetName) {
+        if (inputStream == null) {
+            return null;
+        }
+        InputStreamReader reader = null;
+        if (null == charsetName) {
+            reader = new InputStreamReader(inputStream);
+        } else {
+            reader = new InputStreamReader(inputStream, charsetName);
+        }
+        return new BufferedReader(reader);
+    }
+
+    /**
+     * 获取BufferedReader对象，如果为Null返回空
+     * @param reader 普通reader对象
+     * @return BufferedReader对象
+     */
+    public static BufferedReader getReader(Reader reader) {
+        if (reader == null) {
+            return null;
+        }
+        return (reader instanceof BufferedReader) ? (BufferedReader) reader : new BufferedReader(reader);
+    }
+    /**
+     * 获得一个Writer
+     *
+     * @param out 输入流
+     * @param charsetName 字符集
+     * @return OutputStreamWriter对象
+     */
+    public static OutputStreamWriter getWriter(OutputStream out, String charsetName) {
+        return getWriter(out, Charset.forName(charsetName));
+    }
+    /**
+     * 获得一个Writer
+     *
+     * @param out 输入流
+     * @param charset 字符集
+     * @return OutputStreamWriter对象
+     */
+    public static OutputStreamWriter getWriter(OutputStream out, Charset charset) {
+        if (null == out) {
+            return null;
+        }
+
+        if (null == charset) {
+            return new OutputStreamWriter(out);
+        } else {
+            return new OutputStreamWriter(out, charset);
+        }
+    }
+
 }

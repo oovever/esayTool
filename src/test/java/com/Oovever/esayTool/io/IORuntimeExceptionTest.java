@@ -25,4 +25,10 @@ public class IORuntimeExceptionTest {
             throw new IORuntimeException(e);
         }
     }
+    @Test
+    public void testOut() {
+        int[] a = new int[0];
+        System.out.println(a.length);
+
+    }
 }

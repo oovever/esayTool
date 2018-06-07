@@ -1,5 +1,8 @@
 package com.Oovever.esayTool.util;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+
 /**
  * @author OovEver
  * 2018/6/7 20:53
@@ -39,6 +42,27 @@ public class StringUtil {
      */
     public static boolean isBlankChar(int c) {
         return Character.isWhitespace(c) || Character.isSpaceChar(c);
+    }
+    /**
+     * 创建StringBuilder对象
+     *
+     * @return StringBuilder对象
+     */
+    public static StringBuilder builder() {
+        return new StringBuilder();
+    }
+    /**
+     * 将编码的byteBuffer数据转换为字符串
+     *
+     * @param data 数据
+     * @param charset 字符集，如果为空使用当前系统字符集
+     * @return 字符串
+     */
+    public static String str(ByteBuffer data, Charset charset) {
+        if (null == charset) {
+            charset = Charset.defaultCharset();
+        }
+        return charset.decode(data).toString();
     }
 
 }

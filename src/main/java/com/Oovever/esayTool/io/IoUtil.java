@@ -1,10 +1,14 @@
 package com.Oovever.esayTool.io;
 
+import com.Oovever.esayTool.util.CharsetUtil;
 import com.Oovever.esayTool.util.CommonUtil;
+import com.Oovever.esayTool.util.StringUtil;
 import org.junit.Assert;
 
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
@@ -280,6 +284,90 @@ public class IoUtil {
         } else {
             return new OutputStreamWriter(out, charset);
         }
+    }
+    /**
+     * 从流中读取内容
+     *
+     * @param in 输入流
+     * @param charsetName 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String read(InputStream in, String charsetName) throws IORuntimeException {
+        FastByteArrayOutputStream out = read(in);
+        return StringUtil.isBlank(charsetName) ? out.toString() : out.toString(charsetName);
+    }
+    /**
+     * 从流中读取内容，读到输出流中
+     *
+     * @param in 输入流
+     * @return 输出流
+     * @throws IORuntimeException IO异常
+     */
+    public static FastByteArrayOutputStream read(InputStream in) throws IORuntimeException {
+        final FastByteArrayOutputStream out = new FastByteArrayOutputStream();
+        copy(in, out);
+        return out;
+    }
+    /**
+     * 从Reader中读取String，读取完毕后并不关闭Reader
+     *
+     * @param reader Reader
+     * @return String
+     * @throws IORuntimeException IO异常
+     */
+    public static String read(Reader reader) throws IORuntimeException {
+//        StringBuilder对象
+        final StringBuilder builder = StringUtil.builder();
+        final CharBuffer    buffer  = CharBuffer.allocate(DEFAULT_BUFFER_SIZE);
+        try {
+            while (-1 != reader.read(buffer)) {
+//                转化为写
+                builder.append(buffer.flip().toString());
+            }
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+        return builder.toString();
+    }
+
+    /**
+     * 从FileChannel中读取UTF-8编码内容
+     *
+     * @param fileChannel 文件管道
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readUtf8(FileChannel fileChannel) throws IORuntimeException {
+        return read(fileChannel, CharsetUtil.CHARSET_UTF_8);
+    }
+    /**
+     * 从FileChannel中读取内容，读取完毕后并不关闭Channel
+     *
+     * @param fileChannel 文件管道
+     * @param charsetName 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String read(FileChannel fileChannel, String charsetName) throws IORuntimeException {
+        return read(fileChannel, CharsetUtil.charset(charsetName));
+    }
+    /**
+     * 从FileChannel中读取内容
+     *
+     * @param fileChannel 文件管道
+     * @param charset 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String read(FileChannel fileChannel, Charset charset) throws IORuntimeException {
+        MappedByteBuffer buffer;
+        try {
+            buffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size()).load();
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+        return StringUtil.str(buffer, charset);
     }
 
 }

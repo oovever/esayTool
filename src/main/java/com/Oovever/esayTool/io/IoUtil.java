@@ -422,7 +422,7 @@ public class IoUtil {
      * @param <T> 集合类型
      * @param in 输入流
      * @param collection 返回集合
-     * @return 内容
+     * @return 流中的内容
      * @throws IORuntimeException IO异常
      */
     public static <T extends Collection<String>> T readUtf8Lines(InputStream in, T collection) throws IORuntimeException {
@@ -435,7 +435,7 @@ public class IoUtil {
      * @param in 输入流
      * @param charset 字符集
      * @param collection 返回集合
-     * @return 内容
+     * @return 流中的内容
      * @throws IORuntimeException IO异常
      */
     public static <T extends Collection<String>> T readLines(InputStream in, Charset charset, T collection) throws IORuntimeException {
@@ -458,7 +458,7 @@ public class IoUtil {
      * 从Reader中读取内容
      *
      * @param <T> 集合类型
-     * @param reader {@link Reader}
+     * @param reader reader
      * @param collection 返回集合
      * @return 内容
      * @throws IORuntimeException IO异常
@@ -475,10 +475,9 @@ public class IoUtil {
     /**
      * 按行读取UTF-8编码数据，针对每行的数据做处理
      *
-     * @param in {@link InputStream}
+     * @param in 输入流
      * @param lineHandler 行处理接口，实现handle方法用于编辑一行的数据后入到指定地方
      * @throws IORuntimeException IO异常
-     * @since 3.1.1
      */
     public static void readUtf8Lines(InputStream in, LineHandler lineHandler) throws IORuntimeException {
         readLines(in, CharsetUtil.CHARSET_UTF_8, lineHandler);
@@ -487,20 +486,19 @@ public class IoUtil {
     /**
      * 按行读取数据，针对每行的数据做处理
      *
-     * @param in {@link InputStream}
-     * @param charset {@link Charset}编码
+     * @param in 输入流
+     * @param charset 编码
      * @param lineHandler 行处理接口，实现handle方法用于编辑一行的数据后入到指定地方
      * @throws IORuntimeException IO异常
-     * @since 3.0.9
      */
     public static void readLines(InputStream in, Charset charset, LineHandler lineHandler) throws IORuntimeException {
         readLines(getReader(in, charset), lineHandler);
     }
     /**
      * 按行读取数据，针对每行的数据做处理<br>
-     * {@link Reader}自带编码定义，因此读取数据的编码跟随其编码。
      *
-     * @param reader {@link Reader}
+     *
+     * @param reader reader
      * @param lineHandler 行处理接口，实现handle方法用于编辑一行的数据后入到指定地方
      * @throws IORuntimeException IO异常
      */
@@ -519,5 +517,150 @@ public class IoUtil {
             throw new IORuntimeException(e);
         }
     }
-
+    /**
+     * String 转为流
+     *
+     * @param content 内容
+     * @param charsetName 编码
+     * @return 字节流
+     */
+    public static ByteArrayInputStream toStream(String content, String charsetName) {
+        return toStream(content, CharsetUtil.charset(charsetName));
+    }
+    /**
+     * String 转化为流
+     *
+     * @param content 内容
+     * @param charset 编码
+     * @return 字节流
+     */
+    public static ByteArrayInputStream toStream(String content, Charset charset) {
+        if (content == null) {
+            return null;
+        }
+        return new ByteArrayInputStream(StringUtil.bytes(content, charset));
+    }
+    /**
+     * 文件转为流
+     *
+     * @param file 文件
+     * @return {@link FileInputStream}
+     */
+    public static FileInputStream toStream(File file) {
+        try {
+            return new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+    /**
+     * 将byte[]写到流中
+     *
+     * @param out 输出流
+     * @param isCloseOut 写入完毕是否关闭输出流
+     * @param content 写入的内容
+     * @throws IORuntimeException IO异常
+     */
+    public static void write(OutputStream out, boolean isCloseOut, byte[] content) throws IORuntimeException {
+        try {
+            out.write(content);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        } finally {
+            if (isCloseOut) {
+                close(out);
+            }
+        }
+    }
+    /**
+     * 将多部分内容写到流中，自动转换为UTF-8字符串
+     *
+     * @param out 输出流
+     * @param isCloseOut 写入完毕是否关闭输出流
+     * @param contents 写入的内容，调用toString()方法，不包括不会自动换行
+     * @throws IORuntimeException IO异常
+     */
+    public static void writeUtf8(OutputStream out, boolean isCloseOut, Object... contents) throws IORuntimeException {
+        write(out, CharsetUtil.CHARSET_UTF_8, isCloseOut, contents);
+    }
+    /**
+     * 将多部分内容写到流中，自动转换为字符串
+     *
+     * @param out 输出流
+     * @param charsetName 写出的内容的字符集
+     * @param isCloseOut 写入完毕是否关闭输出流
+     * @param contents 写入的内容
+     * @throws IORuntimeException IO异常
+     */
+    public static void write(OutputStream out, String charsetName, boolean isCloseOut, Object... contents) throws IORuntimeException {
+        write(out, CharsetUtil.charset(charsetName), isCloseOut, contents);
+    }
+    /**
+     * 将多部分内容写到流中，自动转换为字符串
+     *
+     * @param out 输出流
+     * @param charset 写出的内容的字符集
+     * @param isCloseOut 写入完毕是否关闭输出流
+     * @param contents 写入的内容
+     * @throws IORuntimeException IO异常
+     */
+    public static void write(OutputStream out, Charset charset, boolean isCloseOut, Object... contents) throws IORuntimeException {
+        OutputStreamWriter osw = null;
+        try {
+            osw = getWriter(out, charset);
+            for (Object content : contents) {
+                if (content != null) {
+                    osw.write(StringUtil.ObjectToString(content, StringUtil.EMPTY));
+                    osw.flush();
+                }
+            }
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        } finally {
+            if (isCloseOut) {
+                close(osw);
+            }
+        }
+    }
+    /**
+     * 将多部分内容写到流中
+     *
+     * @param out 输出流
+     * @param isCloseOut 写入完毕是否关闭输出流
+     * @param contents 写入的内容
+     * @throws IORuntimeException IO异常
+     */
+    public static void writeObjects(OutputStream out, boolean isCloseOut, Serializable... contents) throws IORuntimeException {
+        ObjectOutputStream osw = null;
+        try {
+            osw = out instanceof ObjectOutputStream ? (ObjectOutputStream) out : new ObjectOutputStream(out);
+            for (Object content : contents) {
+                if (content != null) {
+                    osw.writeObject(content);
+                    osw.flush();
+                }
+            }
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        } finally {
+            if (isCloseOut) {
+                close(osw);
+            }
+        }
+    }
+    /**
+     * 关闭<br>
+     * 关闭失败不会抛出异常
+     *
+     * @param closeable 被关闭的对象
+     */
+    public static void close(AutoCloseable closeable) {
+        if (null != closeable) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                // 静默关闭
+            }
+        }
+    }
 }

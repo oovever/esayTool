@@ -8,6 +8,7 @@ import java.nio.charset.Charset;
  * 2018/6/7 20:53
  */
 public class StringUtil {
+    public static final String EMPTY = "";
     /**
      * 字符串是否为空白 空白的定义如下： <br>
      * 1、为null <br>
@@ -63,6 +64,37 @@ public class StringUtil {
             charset = Charset.defaultCharset();
         }
         return charset.decode(data).toString();
+    }
+    /**
+     * 编码字符串
+     *
+     * @param str 字符串 CharSequence就是字符序列，String, StringBuilder和StringBuffer本质上都是通过字符数组实现的
+     * @param charset 字符集，如果此字段为空，则解码的结果取决于平台
+     * @return 编码后的字节码
+     */
+    public static byte[] bytes(CharSequence str, Charset charset) {
+        if (str == null) {
+            return null;
+        }
+
+        if (null == charset) {
+            return str.toString().getBytes();
+        }
+        return str.toString().getBytes(charset);
+    }
+
+    /**
+     * 将Object对象转化为String
+     * @param value Object的值
+     * @param defaultValue 如果Object为Null时取的转化默认值
+     * @return Object转化后的String
+     */
+    public static String ObjectToString(Object value, String defaultValue) {
+        if (value == null || value.equals(null)) {
+            return defaultValue;
+        }
+        return value.toString();
+
     }
 
 }

@@ -8,6 +8,8 @@ import java.nio.charset.Charset;
  * 2018/6/7 20:53
  */
 public class StringUtil {
+    /** Windows路径分隔符 */
+    public static final char C_BACKSLASH = '\\';
     public static final String EMPTY = "";
     /**
      * 字符串是否为空白 空白的定义如下： <br>

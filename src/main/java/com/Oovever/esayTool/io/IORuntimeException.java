@@ -14,5 +14,8 @@ public class IORuntimeException extends RuntimeException {
     public IORuntimeException(Throwable e) {
        super(e);
     }
+    public IORuntimeException(Throwable e,String message) {
+        super(message,e);
+    }
 
 }

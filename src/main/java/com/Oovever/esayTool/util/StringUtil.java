@@ -58,7 +58,7 @@ public class StringUtil {
      * @param charset 字符集，如果为空使用当前系统字符集
      * @return 字符串
      */
-    public static String str(ByteBuffer data, Charset charset) {
+    public static String BuffetToString(ByteBuffer data, Charset charset) {
         if (null == charset) {
             charset = Charset.defaultCharset();
         }

@@ -14,6 +14,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.nio.charset.Charset;
+import java.util.Collection;
 
 /**
  * @author OovEver
@@ -363,11 +364,160 @@ public class IoUtil {
     public static String read(FileChannel fileChannel, Charset charset) throws IORuntimeException {
         MappedByteBuffer buffer;
         try {
+//            load()将缓冲区的内容载入内存，并返回该缓冲区的引用
             buffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size()).load();
         } catch (IOException e) {
             throw new IORuntimeException(e);
         }
-        return StringUtil.str(buffer, charset);
+        return StringUtil.BuffetToString(buffer, charset);
+    }
+    /**
+     * 从流中读取bytes
+     *
+     * @param in 输入流
+     * @return bytes数组
+     * @throws IORuntimeException IO异常
+     */
+    public static byte[] readBytes(InputStream in) throws IORuntimeException {
+        final FastByteArrayOutputStream out = new FastByteArrayOutputStream();
+        copy(in, out);
+        return out.toByteArray();
+    }
+    /**
+     * 读取指定长度的byte数组，不关闭流
+     *
+     * @param in 输入流，为null返回null
+     * @param length 长度，小于等于0返回空byte数组
+     * @return bytes指定长度的字节数组
+     * @throws IORuntimeException IO异常
+     */
+    public static byte[] readBytes(InputStream in, int length) throws IORuntimeException {
+        if (null == in) {
+            return null;
+        }
+        if (length <= 0) {
+            return new byte[0];
+        }
+        byte[] b = new byte[length];
+        int readLength;
+        try {
+            readLength = in.read(b);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+//        实际长度小于想要读取的长度
+        if (readLength > 0 && readLength < length) {
+            byte[] b2 = new byte[length];
+            System.arraycopy(b, 0, b2, 0, readLength);
+            return b2;
+        } else {
+            return b;
+        }
+
+
+    }
+    /**
+     * 从流中读取内容，使用UTF-8编码
+     *
+     * @param <T> 集合类型
+     * @param in 输入流
+     * @param collection 返回集合
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readUtf8Lines(InputStream in, T collection) throws IORuntimeException {
+        return readLines(in, CharsetUtil.CHARSET_UTF_8, collection);
+    }
+    /**
+     * 从流中读取内容
+     *
+     * @param <T> 集合类型
+     * @param in 输入流
+     * @param charset 字符集
+     * @param collection 返回集合
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(InputStream in, Charset charset, T collection) throws IORuntimeException {
+        return readLines(getReader(in, charset), collection);
+    }
+    /**
+     * 从流中读取内容
+     *
+     * @param <T> 集合类型
+     * @param in 输入流
+     * @param charsetName 字符集
+     * @param collection 返回集合
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(InputStream in, String charsetName, T collection) throws IORuntimeException {
+        return readLines(in, CharsetUtil.charset(charsetName), collection);
+    }
+    /**
+     * 从Reader中读取内容
+     *
+     * @param <T> 集合类型
+     * @param reader {@link Reader}
+     * @param collection 返回集合
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(Reader reader, final T collection) throws IORuntimeException {
+        readLines(reader, new LineHandler(){
+            @Override
+            public void handle(String line) {
+                collection.add(line);
+            }
+        });
+        return collection;
+    }
+    /**
+     * 按行读取UTF-8编码数据，针对每行的数据做处理
+     *
+     * @param in {@link InputStream}
+     * @param lineHandler 行处理接口，实现handle方法用于编辑一行的数据后入到指定地方
+     * @throws IORuntimeException IO异常
+     * @since 3.1.1
+     */
+    public static void readUtf8Lines(InputStream in, LineHandler lineHandler) throws IORuntimeException {
+        readLines(in, CharsetUtil.CHARSET_UTF_8, lineHandler);
+    }
+
+    /**
+     * 按行读取数据，针对每行的数据做处理
+     *
+     * @param in {@link InputStream}
+     * @param charset {@link Charset}编码
+     * @param lineHandler 行处理接口，实现handle方法用于编辑一行的数据后入到指定地方
+     * @throws IORuntimeException IO异常
+     * @since 3.0.9
+     */
+    public static void readLines(InputStream in, Charset charset, LineHandler lineHandler) throws IORuntimeException {
+        readLines(getReader(in, charset), lineHandler);
+    }
+    /**
+     * 按行读取数据，针对每行的数据做处理<br>
+     * {@link Reader}自带编码定义，因此读取数据的编码跟随其编码。
+     *
+     * @param reader {@link Reader}
+     * @param lineHandler 行处理接口，实现handle方法用于编辑一行的数据后入到指定地方
+     * @throws IORuntimeException IO异常
+     */
+    public static void readLines(Reader reader, LineHandler lineHandler) throws IORuntimeException {
+        CommonUtil.notNull(reader,"reader不能为空");
+        CommonUtil.notNull(lineHandler,"行处理器不能为空");
+
+        // 从返回的内容中读取所需内容
+        final BufferedReader bReader = getReader(reader);
+        String line = null;
+        try {
+            while ((line = bReader.readLine()) != null) {
+                lineHandler.handle(line);
+            }
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
     }
 
 }

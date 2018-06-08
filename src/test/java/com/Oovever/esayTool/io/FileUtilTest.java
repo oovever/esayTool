@@ -3,6 +3,8 @@ package com.Oovever.esayTool.io;
 import com.Oovever.esayTool.util.StringUtil;
 import org.junit.Test;
 
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 /**
@@ -13,6 +15,8 @@ public class FileUtilTest {
 
     @Test
     public void touch() {
-        String path = "D:\\tmp\\a.txt";
+        String path = "D:\\tmp\\generator-result\\src\\main\\resources";
+        File file = new File(path);
+        FileUtil.del(file);
     }
 }

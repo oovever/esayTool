@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 public class StringUtil {
     /** Windows路径分隔符 */
     public static final char C_BACKSLASH = '\\';
+    public static final String DOT = ".";
     public static final String EMPTY = "";
     /**
      * 字符串是否为空白 空白的定义如下： <br>
@@ -97,6 +98,49 @@ public class StringUtil {
         }
         return value.toString();
 
+    }
+    /**
+     * 比较两个字符串（大小写不敏感）。
+     *
+     * <pre>
+     * equalsIgnoreCase(null, null)   = true
+     * equalsIgnoreCase(null, &quot;abc&quot;)  = false
+     * equalsIgnoreCase(&quot;abc&quot;, null)  = false
+     * equalsIgnoreCase(&quot;abc&quot;, &quot;abc&quot;) = true
+     * equalsIgnoreCase(&quot;abc&quot;, &quot;ABC&quot;) = true
+     * </pre>
+     *
+     * @param str1 要比较的字符串1
+     * @param str2 要比较的字符串2
+     *
+     * @return 如果两个字符串相同，或者都是null，则返回true
+     */
+    public static boolean equalsIgnoreCase(CharSequence str1, CharSequence str2) {
+        return equals(str1, str2, true);
+    }
+    /**
+     * 比较两个字符串是否相等。
+     *
+     * @param str1 要比较的字符串1
+     * @param str2 要比较的字符串2
+     * @param ignoreCase 是否忽略大小写
+     * @return 如果两个字符串相同，或者都是null，则返回true
+     */
+    public static boolean equals(CharSequence str1, CharSequence str2, boolean ignoreCase) {
+        if (null == str1) {
+            //只有两个都为null才判断相等
+            return str2 == null;
+        }
+        if(null == str2) {
+            //字符串2空，字符串1非空，直接false
+            return false;
+        }
+
+        if (ignoreCase) {
+            return str1.toString().equalsIgnoreCase(str2.toString());
+        } else {
+            return str1.equals(str2);
+        }
     }
 
 }

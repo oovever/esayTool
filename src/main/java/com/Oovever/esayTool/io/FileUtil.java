@@ -8,9 +8,8 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.net.URI;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.net.URL;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -418,4 +417,257 @@ public class FileUtil {
         }
         return mkParentDirs(file(path));
     }
+    /**
+     * 删除文件或者文件夹<br>
+     * 路径如果为相对路径，会转换为ClassPath路径！ 递归删除子文件夹
+     * 某个文件删除失败会终止删除操作
+     *
+     * @param fullFileOrDirPath 文件或者目录的路径
+     * @return 成功与否
+     * @throws IORuntimeException IO异常
+     */
+    public static boolean del(String fullFileOrDirPath) throws IORuntimeException {
+        return del(file(fullFileOrDirPath));
+    }
+    /**
+     * 删除文件或者文件夹<br>
+     * 注意：删除文件夹时不会判断文件夹是否为空，如果不空则递归删除子文件或文件夹<br>
+     * 某个文件删除失败会终止删除操作
+     *
+     * @param file 文件对象
+     * @return 成功与否
+     * @throws IORuntimeException IO异常
+     */
+    public static boolean del(File file) throws IORuntimeException {
+        if (file == null || false == file.exists()) {
+            return false;
+        }
+
+        if (file.isDirectory()) {
+            clean(file);
+        }
+        try {
+            Files.delete(file.toPath());
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+        return true;
+    }
+    /**
+     * 清空文件夹<br>
+     * 注意：清空文件夹时不会判断文件夹是否为空，如果不空则递归删除子文件或文件夹<br>
+     * 某个文件删除失败会终止删除操作
+     *
+     * @param directory 文件夹
+     * @return 成功与否
+     * @throws IORuntimeException IO异常
+     */
+    public static boolean clean(File directory) throws IORuntimeException {
+        if (directory == null || directory.exists() == false || false == directory.isDirectory()) {
+            return true;
+        }
+//        列出所有文件（文件夹）绝对路径
+        final File[] files = directory.listFiles();
+        for (File childFile : files) {
+            boolean isOk = del(childFile);
+            if (isOk == false) {
+                // 删除一个出错则本次删除任务失败
+                return false;
+            }
+        }
+        return true;
+    }
+    /**
+     * 创建文件夹，如果存在直接返回此文件夹<br>
+     * 此方法不对File对象类型做判断，如果File不存在，无法判断其类型
+     *
+     * @param dirPath 文件夹路径
+     * @return 创建的目录
+     */
+    public static File mkdir(String dirPath) {
+        if (dirPath == null) {
+            return null;
+        }
+        final File dir = file(dirPath);
+        return mkdir(dir);
+    }
+
+    /**
+     * 创建文件夹，会递归自动创建其不存在的父文件夹，如果存在直接返回此文件夹<br>
+     * 此方法不对File对象类型做判断，如果File不存在，无法判断其类型
+     *
+     * @param dir 目录
+     * @return 创建的目录
+     */
+    public static File mkdir(File dir) {
+        if (dir == null) {
+            return null;
+        }
+        if (false == dir.exists()) {
+            dir.mkdirs();
+        }
+        return dir;
+    }
+
+    /**
+     * 检查两个文件是否是同一个文件<br>
+     * 所谓文件相同，是指File对象是否指向同一个文件或文件夹
+     *
+     * @param file1 文件1
+     * @param file2 文件2
+     * @return 是否相同
+     * @throws IORuntimeException IO异常
+     * @see Files#isSameFile(Path, Path)
+     */
+    public static boolean equals(File file1, File file2) throws IORuntimeException {
+        CommonUtil.notNull(file1,"文件1不能为空");
+        CommonUtil.notNull(file2,"文件2不能为空");
+        if (false == file1.exists() || false == file2.exists()) {
+            // 两个文件都不存在判断其路径是否相同
+            if (false == file1.exists() && false == file2.exists() && pathEquals(file1, file2)) {
+                return true;
+            }
+            // 对于一个存在一个不存在的情况，一定不相同
+            return false;
+        }
+        try {
+            return Files.isSameFile(file1.toPath(), file2.toPath());
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+    /**
+     * 文件路径是否相同<br>
+     * 取两个文件的绝对路径比较，在Windows下忽略大小写，在Linux下不忽略。
+     *
+     * @param file1 文件1
+     * @param file2 文件2
+     * @return 文件路径是否相同
+     */
+    public static boolean pathEquals(File file1, File file2) {
+// Windows环境
+        try {
+            if (StringUtil.equalsIgnoreCase(file1.getCanonicalPath(), file2.getCanonicalPath())) {
+                return true;
+            }
+        } catch (Exception e) {
+            if (StringUtil.equalsIgnoreCase(file1.getAbsolutePath(), file2.getAbsolutePath())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * 拷贝文件
+     *
+     * @param src 源文件路径
+     * @param dest 目标文件或目录路径，如果为目录使用与源文件相同的文件名
+     * @param options {@link StandardCopyOption}
+     * @return File
+     * @throws IORuntimeException IO异常
+     */
+    public static File copyFile(String src, String dest, StandardCopyOption... options) throws IORuntimeException {
+        CommonUtil.notNull(src, "Source File path is blank !");
+        CommonUtil.notNull(src, "Destination File path is null !");
+        return copyFile(Paths.get(src), Paths.get(dest), options).toFile();
+    }
+    /**
+     * 拷贝文件
+     *
+     * @param src 源文件
+     * @param dest 目标文件或目录，如果为目录使用与源文件相同的文件名
+     * @param options   复制一个文件同样非常简单，Files的copy方法就可以实现。在复制文件时，我们可以对复制操作加一个参数来指明具体如何进行复制。java.lang.enum.StandardCopyOption这个枚举可以用作参数传递给copy方法
+     * @return 目标文件
+     * @throws IORuntimeException IO异常
+     */
+    public static File copyFile(File src, File dest, StandardCopyOption... options) throws IORuntimeException {
+        // check
+        CommonUtil.notNull(src, "Source File is null !");
+        if (false == src.exists()) {
+            throw new IORuntimeException("File not exist: " + src);
+        }
+        CommonUtil.notNull(dest, "Destination File or directiory is null !");
+        if (equals(src, dest)) {
+            throw new IORuntimeException("Files are equal");
+        }
+        return copyFile(src.toPath(), dest.toPath(), options).toFile();
+    }
+    /**
+     * 拷贝文件
+     *
+     * @param src 源文件路径
+     * @param dest 目标文件或目录，如果为目录使用与源文件相同的文件名
+     * @param options {@link StandardCopyOption}
+     * @return Path
+     * @throws IORuntimeException IO异常
+     */
+    public static Path copyFile(Path src, Path dest, StandardCopyOption... options) throws IORuntimeException {
+        CommonUtil.notNull(src, "Source File is null !");
+        CommonUtil.notNull(dest, "Destination File or directiory is null !");
+//        Path接口中resolve方法的作用相当于把当前路径当成父目录，而把参数中的路径当成子目录或是其中的文件，进行解析之后得到一个新路径；
+        Path destPath = dest.toFile().isDirectory() ? dest.resolve(src.getFileName()) : dest;
+        try {
+            return Files.copy(src, destPath, options);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+    /**
+     * 修改文件或目录的文件名，不变更路径，只是简单修改文件名<br>
+     * 重命名有两种模式：<br>
+     * 1、isRetainExt为true时，保留原扩展名：
+     * 2、isRetainExt为false时，不保留原扩展名，需要在newName中指定
+     * @param file 被修改的文件
+     * @param newName 新的文件名，包括扩展名
+     * @param isRetainExt 是否保留原文件的扩展名，如果保留，则newName不需要加扩展名
+     * @param isOverride 是否覆盖目标文件
+     * @return 目标文件
+     */
+    public static File rename(File file, String newName, boolean isRetainExt, boolean isOverride) {
+        if (isRetainExt) {
+            newName = newName.concat(".").concat(FileUtil.extName(file));
+        }
+        final Path path = file.toPath();
+        final CopyOption[] options = isOverride ? new CopyOption[] { StandardCopyOption.REPLACE_EXISTING } : new CopyOption[] {};
+        try {
+            return Files.move(path, path.resolveSibling(newName), options).toFile();
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+    /**
+     * 获取文件扩展名，扩展名不带“.”
+     *
+     * @param file 文件
+     * @return 扩展名
+     */
+    public static String extName(File file) {
+        if (null == file) {
+            return null;
+        }
+        if (file.isDirectory()) {
+            return null;
+        }
+        return extName(file.getName());
+    }
+    /**
+     * 获得文件的扩展名，扩展名不带“.”
+     *
+     * @param fileName 文件名
+     * @return 扩展名
+     */
+    public static String extName(String fileName) {
+        if (fileName == null) {
+            return null;
+        }
+        int index = fileName.lastIndexOf(StringUtil.DOT);
+        if (index == -1) {
+            return StringUtil.EMPTY;
+        } else {
+            String ext = fileName.substring(index + 1);
+            // 扩展名中不能包含路径相关的符号
+            return ( ext.contains(String.valueOf(WINDOWS_SEPARATOR))) ? StringUtil.EMPTY : ext;
+        }
+    }
+
 }

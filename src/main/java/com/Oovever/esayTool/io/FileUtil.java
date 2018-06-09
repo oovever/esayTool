@@ -1,18 +1,18 @@
 package com.Oovever.esayTool.io;
 
+import com.Oovever.esayTool.io.file.FileReader;
 import com.Oovever.esayTool.util.ArrayUtil;
+import com.Oovever.esayTool.util.CharsetUtil;
 import com.Oovever.esayTool.util.CommonUtil;
 import com.Oovever.esayTool.util.StringUtil;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -134,7 +134,7 @@ public class FileUtil {
         if (StringUtil.isBlank(path)) {
             throw new NullPointerException("File path is blank!");
         }
-        return new File(getAbsolutePath(path));
+        return new File(path);
     }
     /**
      * 创建File对象
@@ -174,17 +174,7 @@ public class FileUtil {
         }
         return new File(uri);
     }
-    /**
-     * 获取绝对路径，相对于ClassPath的目录<br>
-     * 如果给定就是绝对路径，则返回原路径，原路径把所有\替换为/<br>
-     *
-     * @param path 相对路径
-     * @return 绝对路径
-     */
-    public static String getAbsolutePath(String path) {
-//        Todo 获取绝对路径
-        return null;
-    }
+
     /**
      * 递归遍历目录以及子目录中的所有文件<br>
      * 如果提供file为文件，直接返回过滤结果
@@ -636,6 +626,25 @@ public class FileUtil {
         }
     }
     /**
+     * 给定路径已经是绝对路径<br>
+     * 此方法并没有针对路径做标准化，建议先执行{@link #normalize(String)}方法标准化路径后判断
+     *
+     * @param path 需要检查的Path
+     * @return 是否已经是绝对路径
+     */
+    public static boolean isAbsolutePath(String path) {
+        if (StringUtil.isEmpty(path)) {
+            return false;
+        }
+
+        if (StringUtil.C_SLASH == path.charAt(0) || path.matches("^[a-zA-Z]:/.*")) {
+            // 给定的路径已经是绝对路径了
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 获取文件扩展名，扩展名不带“.”
      *
      * @param file 文件
@@ -668,6 +677,652 @@ public class FileUtil {
             // 扩展名中不能包含路径相关的符号
             return ( ext.contains(String.valueOf(WINDOWS_SEPARATOR))) ? StringUtil.EMPTY : ext;
         }
+    }
+    /**
+     * 修复路径<br>
+     * 如果原路径尾部有分隔符，则保留为标准分隔符（/），否则不保留
+     * <ol>
+     * <li>1. 统一用 /</li>
+     * <li>2. 多个 / 转换为一个 /</li>
+     * <li>3. 去除两边空格</li>
+     * <li>4. .. 和 . 转换为绝对路径，当..多于已有路径时，直接返回根路径</li>
+     * </ol>
+     *
+     * @param path 原路径
+     * @return 修复后的路径
+     */
+    public static String normalize(String path) {
+        if (path == null) {
+            return null;
+        }
+
+        //去除前缀，不区分大小写
+        String pathToUse = StringUtil.removePrefixIgnoreCase(path, "classpath:");
+        // 去除file:前缀
+        pathToUse = StringUtil.removePrefixIgnoreCase(pathToUse, "file:");
+        // 统一使用斜杠
+        pathToUse = pathToUse.replaceAll("[/\\\\]{1,}", "/").trim();
+
+        int prefixIndex = pathToUse.indexOf(StringUtil.COLON);
+        String prefix = "";
+        if (prefixIndex > -1) {
+            // 可能Windows风格路径
+            prefix = pathToUse.substring(0, prefixIndex + 1);
+            if (prefix.startsWith("/")) {
+                // 去除类似于/C:这类路径开头的斜杠
+                prefix = prefix.substring(1);
+            }
+            if (false == prefix.contains("/")) {
+                pathToUse = pathToUse.substring(prefixIndex + 1);
+            }
+        }
+        if (pathToUse.startsWith(StringUtil.SLASH)) {
+            prefix += StringUtil.SLASH;
+            pathToUse = pathToUse.substring(1);
+        }
+
+        List<String> pathList = StringUtil.split(pathToUse, StringUtil.SLASH);
+        List<String> pathElements = new LinkedList<String>();
+        int tops = 0;
+
+        String element;
+        for (int i = pathList.size() - 1; i >= 0; i--) {
+            element = pathList.get(i);
+            if (StringUtil.DOT.equals(element)) {
+                // 当前目录，丢弃
+            } else if (StringUtil.DOUBLE_DOT.equals(element)) {
+                tops++;
+            } else {
+                if (tops > 0) {
+                    // 有上级目录标记时按照个数依次跳过
+                    tops--;
+                } else {
+                    // Normal path element found.
+                    pathElements.add(0, element);
+                }
+            }
+        }
+
+        return prefix + StringUtil.join(pathElements, StringUtil.SLASH);
+    }
+    /**
+     * 判断是否为目录，如果path为null，则返回false
+     *
+     * @param path 文件路径
+     * @return 如果为目录true
+     */
+    public static boolean isDirectory(String path) {
+        return (path == null) ? false : file(path).isDirectory();
+    }
+    /**
+     * 判断是否为目录，如果file为null，则返回false
+     *
+     * @param file 文件
+     * @return 如果为目录true
+     */
+    public static boolean isDirectory(File file) {
+        return (file == null) ? false : file.isDirectory();
+    }
+    /**
+     * 判断是否为目录，如果file为null，则返回false
+     *
+     * @param path  路径
+     * @param isFollowLinks 是否追踪到软链对应的真实地址
+     * @return 如果为目录true
+     */
+    public static boolean isDirectory(Path path, boolean isFollowLinks) {
+        if (null == path) {
+            return false;
+        }
+        final LinkOption[] options = isFollowLinks ? new LinkOption[0] : new LinkOption[] { LinkOption.NOFOLLOW_LINKS };
+        return Files.isDirectory(path, options);
+    }
+    /**
+     * 判断是否为文件，如果path为null，则返回false
+     *
+     * @param path 文件路径
+     * @return 如果为文件true
+     */
+    public static boolean isFile(String path) {
+        return (path == null) ? false : file(path).isFile();
+    }
+    /**
+     * 判断是否为文件，如果file为null，则返回false
+     *
+     * @param file 文件
+     * @return 如果为文件true
+     */
+    public static boolean isFile(File file) {
+        return (file == null) ? false : file.isFile();
+    }
+    /**
+     * 判断是否为文件，如果file为null，则返回false
+     *
+     * @param path 文件
+     * @param isFollowLinks 是否跟踪软链（快捷方式）
+     * @return 如果为文件true
+     */
+    public static boolean isFile(Path path, boolean isFollowLinks) {
+        if (null == path) {
+            return false;
+        }
+        final LinkOption[] options = isFollowLinks ? new LinkOption[0] : new LinkOption[] { LinkOption.NOFOLLOW_LINKS };
+        return Files.isRegularFile(path, options);
+    }
+    /**
+     * 判断文件是否被改动<br>
+     * 如果文件对象为 null 或者文件不存在，被视为改动
+     *
+     * @param file 文件对象
+     * @param lastModifyTime 上次的改动时间
+     * @return 是否被改动
+     */
+    public static boolean isModifed(File file, long lastModifyTime) {
+        if (null == file || false == file.exists()) {
+            return true;
+        }
+        return file.lastModified() != lastModifyTime;
+    }
+    /**
+     * 返回主文件名
+     *
+     * @param file 文件
+     * @return 主文件名
+     */
+    public static String mainName(File file) {
+        if (file.isDirectory()) {
+            return file.getName();
+        }
+        return mainName(file.getName());
+    }
+    /**
+     * 返回主文件名
+     *
+     * @param fileName 完整文件名
+     * @return 主文件名
+     */
+    public static String mainName(String fileName) {
+        if (StringUtil.isBlank(fileName) || false == fileName.contains(StringUtil.DOT)) {
+            return fileName;
+        }
+        return fileName.substring(fileName.lastIndexOf(StringUtil.DOT));
+    }
+    /**
+     * 判断文件路径是否有指定后缀，忽略大小写<br>
+     * 常用语判断扩展名
+     *
+     * @param file 文件或目录
+     * @param suffix 后缀
+     * @return 是否有指定后缀
+     */
+    public static boolean pathEndsWith(File file, String suffix) {
+        return file.getPath().toLowerCase().endsWith(suffix);
+    }
+    /**
+     * 获取文件属性
+     *
+     * @param path 文件路径
+     * @param isFollowLinks 是否跟踪到软链对应的真实路径
+     * @return  文件属性
+     * @throws IORuntimeException IO异常
+     * @since 3.1.0
+     */
+    public static BasicFileAttributes getAttributes(Path path, boolean isFollowLinks) throws IORuntimeException {
+        if (null == path) {
+            return null;
+        }
+
+        final LinkOption[] options = isFollowLinks ? new LinkOption[0] : new LinkOption[] { LinkOption.NOFOLLOW_LINKS };
+        try {
+            return Files.readAttributes(path, BasicFileAttributes.class, options);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+    /**
+     * 获得输入流
+     *
+     * @param file 文件
+     * @return 输入流
+     * @throws IORuntimeException 文件未找到
+     */
+    public static BufferedInputStream getInputStream(File file) throws IORuntimeException {
+        try {
+            return new BufferedInputStream(new FileInputStream(file));
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+    /**
+     * 获得输入流
+     *
+     * @param path 文件路径
+     * @return 输入流
+     * @throws IORuntimeException 文件未找到
+     */
+    public static BufferedInputStream getInputStream(String path) throws IORuntimeException {
+        return getInputStream(file(path));
+    }
+    /**
+     * 获得一个文件读取器
+     *
+     * @param file 文件
+     * @return BufferedReader对象
+     * @throws IORuntimeException IO异常
+     */
+    public static BufferedReader getUtf8Reader(File file) throws IORuntimeException {
+        return getReader(file, CharsetUtil.CHARSET_UTF_8);
+    }
+    /**
+     * 获得一个文件读取器
+     *
+     * @param path 文件路径
+     * @return BufferedReader对象
+     * @throws IORuntimeException IO异常
+     */
+    public static BufferedReader getUtf8Reader(String path) throws IORuntimeException {
+        return getReader(path, CharsetUtil.CHARSET_UTF_8);
+    }
+
+    /**
+     * 获得一个文件读取器
+     *
+     * @param file 文件
+     * @param charsetName 字符集
+     * @return BufferedReader对象
+     * @throws IORuntimeException IO异常
+     */
+    public static BufferedReader getReader(File file, String charsetName) throws IORuntimeException {
+        return IoUtil.getReader(getInputStream(file), charsetName);
+    }
+
+    /**
+     * 获得一个文件读取器
+     *
+     * @param file 文件
+     * @param charset 字符集
+     * @return BufferedReader对象
+     * @throws IORuntimeException IO异常
+     */
+    public static BufferedReader getReader(File file, Charset charset) throws IORuntimeException {
+        return IoUtil.getReader(getInputStream(file), charset);
+    }
+    /**
+     * 获得一个文件读取器
+     *
+     * @param path 绝对路径
+     * @param charsetName 字符集
+     * @return BufferedReader对象
+     * @throws IORuntimeException IO异常
+     */
+    public static BufferedReader getReader(String path, String charsetName) throws IORuntimeException {
+        return getReader(file(path), charsetName);
+    }
+    /**
+     * 获得一个文件读取器
+     *
+     * @param path 绝对路径
+     * @param charset 字符集
+     * @return BufferedReader对象
+     * @throws IORuntimeException IO异常
+     */
+    public static BufferedReader getReader(String path, Charset charset) throws IORuntimeException {
+        return getReader(file(path), charset);
+    }
+    /**
+     * 读取文件所有数据<br>
+     * 文件的长度不能超过Integer.MAX_VALUE
+     *
+     * @param file 文件
+     * @return 字节码
+     * @throws IORuntimeException IO异常
+     */
+    public static byte[] readBytes(File file) throws IORuntimeException {
+        return FileReader.create(file).readBytes();
+    }
+    /**
+     * 读取文件所有数据<br>
+     * 文件的长度不能超过Integer.MAX_VALUE
+     *
+     * @param filePath 文件路径
+     * @return 字节码
+     * @throws IORuntimeException IO异常
+     * @since 3.2.0
+     */
+    public static byte[] readBytes(String filePath) throws IORuntimeException {
+        return readBytes(file(filePath));
+    }
+    /**
+     * 读取文件内容
+     *
+     * @param file 文件
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readUtf8String(File file) throws IORuntimeException {
+        return readString(file, CharsetUtil.CHARSET_UTF_8);
+    }
+    /**
+     * 读取文件内容
+     *
+     * @param path 文件路径
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readUtf8String(String path) throws IORuntimeException {
+        return readString(path, CharsetUtil.CHARSET_UTF_8);
+    }
+    /**
+     * 读取文件内容
+     *
+     * @param file 文件
+     * @param charsetName 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readString(File file, String charsetName) throws IORuntimeException {
+        return readString(file, CharsetUtil.charset(charsetName));
+    }
+    /**
+     * 读取文件内容
+     *
+     * @param file 文件
+     * @param charset 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readString(File file, Charset charset) throws IORuntimeException {
+        return FileReader.create(file, charset).readString();
+    }
+    /**
+     * 读取文件内容
+     *
+     * @param path 文件路径
+     * @param charsetName 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readString(String path, String charsetName) throws IORuntimeException {
+        return readString(file(path), charsetName);
+    }
+    /**
+     * 读取文件内容
+     *
+     * @param path 文件路径
+     * @param charset 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readString(String path, Charset charset) throws IORuntimeException {
+        return readString(file(path), charset);
+    }
+
+    /**
+     * 读取文件内容
+     *
+     * @param url 文件URL
+     * @param charset 字符集
+     * @return 内容
+     * @throws IORuntimeException IO异常
+     */
+    public static String readString(URL url, String charset) throws IORuntimeException {
+        if (url == null) {
+            throw new NullPointerException("Empty url provided!");
+        }
+
+        InputStream in = null;
+        try {
+            in = url.openStream();
+            return IoUtil.read(in, charset);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        } finally {
+            IoUtil.close(in);
+        }
+    }
+    /**
+     * 从文件中读取每一行的UTF-8编码数据
+     *
+     * @param <T> 集合类型
+     * @param path 文件路径
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     * @since 3.1.1
+     */
+    public static <T extends Collection<String>> T readUtf8Lines(String path, T collection) throws IORuntimeException {
+        return readLines(path, CharsetUtil.CHARSET_UTF_8, collection);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param <T> 集合类型
+     * @param path 文件路径
+     * @param charset 字符集
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(String path, String charset, T collection) throws IORuntimeException {
+        return readLines(file(path), charset, collection);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param <T> 集合类型
+     * @param path 文件路径
+     * @param charset 字符集
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(String path, Charset charset, T collection) throws IORuntimeException {
+        return readLines(file(path), charset, collection);
+    }
+    /**
+     * 从文件中读取每一行数据，数据编码为UTF-8
+     *
+     * @param <T> 集合类型
+     * @param file 文件路径
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     * @since 3.1.1
+     */
+    public static <T extends Collection<String>> T readUtf8Lines(File file, T collection) throws IORuntimeException {
+        return readLines(file, CharsetUtil.CHARSET_UTF_8, collection);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param <T> 集合类型
+     * @param file 文件路径
+     * @param charset 字符集
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(File file, String charset, T collection) throws IORuntimeException {
+        return FileReader.create(file, CharsetUtil.charset(charset)).readLines(collection);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param <T> 集合类型
+     * @param file 文件路径
+     * @param charset 字符集
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(File file, Charset charset, T collection) throws IORuntimeException {
+        return FileReader.create(file, charset).readLines(collection);
+    }
+
+    /**
+     * 从文件中读取每一行数据，编码为UTF-8
+     *
+     * @param <T> 集合类型
+     * @param url 文件的URL
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readUtf8Lines(URL url, T collection) throws IORuntimeException {
+        return readLines(url, CharsetUtil.CHARSET_UTF_8, collection);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param <T> 集合类型
+     * @param url 文件的URL
+     * @param charsetName 字符集
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     */
+    public static <T extends Collection<String>> T readLines(URL url, String charsetName, T collection) throws IORuntimeException {
+        return readLines(url, CharsetUtil.charset(charsetName), collection);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param <T> 集合类型
+     * @param url 文件的URL
+     * @param charset 字符集
+     * @param collection 集合
+     * @return 文件中的每行内容的集合
+     * @throws IORuntimeException IO异常
+     * @since 3.1.1
+     */
+    public static <T extends Collection<String>> T readLines(URL url, Charset charset, T collection) throws IORuntimeException {
+        InputStream in = null;
+        try {
+            in = url.openStream();
+            return IoUtil.readLines(in, charset, collection);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        } finally {
+            IoUtil.close(in);
+        }
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param url 文件的URL
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readUtf8Lines(URL url) throws IORuntimeException {
+        return readLines(url, CharsetUtil.CHARSET_UTF_8);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param url 文件的URL
+     * @param charset 字符集
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readLines(URL url, String charset) throws IORuntimeException {
+        return readLines(url, charset, new ArrayList<String>());
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param url 文件的URL
+     * @param charset 字符集
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readLines(URL url, Charset charset) throws IORuntimeException {
+        return readLines(url, charset, new ArrayList<String>());
+    }
+    /**
+     * 从文件中读取每一行数据，编码为UTF-8
+     *
+     * @param path 文件路径
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     * @since 3.1.1
+     */
+    public static List<String> readUtf8Lines(String path) throws IORuntimeException {
+        return readLines(path, CharsetUtil.CHARSET_UTF_8);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param path 文件路径
+     * @param charset 字符集
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readLines(String path, String charset) throws IORuntimeException {
+        return readLines(path, charset, new ArrayList<String>());
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param path 文件路径
+     * @param charset 字符集
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readLines(String path, Charset charset) throws IORuntimeException {
+        return readLines(path, charset, new ArrayList<String>());
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param file 文件
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readUtf8Lines(File file) throws IORuntimeException {
+        return readLines(file, CharsetUtil.CHARSET_UTF_8);
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param file 文件
+     * @param charset 字符集
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readLines(File file, String charset) throws IORuntimeException {
+        return readLines(file, charset, new ArrayList<String>());
+    }
+    /**
+     * 从文件中读取每一行数据
+     *
+     * @param file 文件
+     * @param charset 字符集
+     * @return 文件中的每行内容的集合List
+     * @throws IORuntimeException IO异常
+     */
+    public static List<String> readLines(File file, Charset charset) throws IORuntimeException {
+        return readLines(file, charset, new ArrayList<String>());
+    }
+    /**
+     * 按行处理文件内容，编码为UTF-8
+     *
+     * @param file 文件
+     * @param lineHandler {@link LineHandler}行处理器
+     * @throws IORuntimeException IO异常
+     */
+    public static void readUtf8Lines(File file, LineHandler lineHandler) throws IORuntimeException {
+        readLines(file, CharsetUtil.CHARSET_UTF_8, lineHandler);
+    }
+    /**
+     * 按行处理文件内容
+     *
+     * @param file 文件
+     * @param charset 编码
+     * @param lineHandler {@link LineHandler}行处理器
+     * @throws IORuntimeException IO异常
+     */
+    public static void readLines(File file, Charset charset, LineHandler lineHandler) throws IORuntimeException {
+        FileReader.create(file, charset).readLines(lineHandler);
     }
 
 }

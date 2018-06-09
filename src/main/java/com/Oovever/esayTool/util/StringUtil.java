@@ -1,7 +1,11 @@
 package com.Oovever.esayTool.util;
 
+import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author OovEver
@@ -12,6 +16,10 @@ public class StringUtil {
     public static final char C_BACKSLASH = '\\';
     public static final String DOT = ".";
     public static final String EMPTY = "";
+    public static final String COLON = ":";
+    public static final char C_SLASH = '/';
+    public static final String SLASH = "/";
+    public static final String DOUBLE_DOT = "..";
     /**
      * 字符串是否为空白 空白的定义如下： <br>
      * 1、为null <br>
@@ -142,5 +150,78 @@ public class StringUtil {
             return str1.equals(str2);
         }
     }
+    /**
+     * 忽略大小写去掉指定前缀
+     *
+     * @param str 字符串
+     * @param prefix 前缀
+     * @return 切掉后的字符串，若前缀不是 prefix， 返回原字符串
+     */
+    public static String removePrefixIgnoreCase(CharSequence str, CharSequence prefix) {
+        if (isEmpty(str) || isEmpty(prefix)) {
+            return str(str);
+        }
+
+        final String str2 = str.toString();
+        if (str2.toLowerCase().startsWith(prefix.toString().toLowerCase())) {
+            return str2.substring(prefix.length());// 截取后半段
+        }
+        return str2;
+    }
+    /**
+     * 字符串是否为空，空的定义如下:<br>
+     * 1、为null <br>
+     * 2、为""<br>
+     *
+     * @param str 被检测的字符串
+     * @return 是否为空
+     */
+    public static boolean isEmpty(CharSequence str) {
+        return str == null || str.length() == 0;
+    }
+    /**
+     * {@link CharSequence} 转为字符串，null安全
+     *
+     * @param cs {@link CharSequence}
+     * @return 字符串
+     */
+    public static String str(CharSequence cs) {
+        return null == cs ? null : cs.toString();
+    }
+    /**
+     * 切分字符串<br>
+     * a#b#c =》 [a,b,c] <br>
+     * a##b#c =》 [a,"",b,c]
+     *
+     * @param str 被切分的字符串
+     * @param separator 分隔符字符
+     * @return 切分后的集合
+     */
+    public static List<String> split(String str, String separator) {
+        List<String> res = new ArrayList<>();
+        if (str == null || str == "") {
+            return res;
+        }
+        for (String sepStr : str.split(separator)) {
+            res.add(sepStr);
+        }
+        return res;
+
+    }
+
+    /**
+     * 以 conjunction 为分隔符将集合转换为字符串<br>
+     * @param stringList 分割后的字符串
+     * @param conjunction 连接符
+     * @return 连接后的字符串
+     */
+    public static  String join(List<String> stringList, CharSequence conjunction) {
+        String res = "";
+        for (String str : stringList) {
+            res = res + str + conjunction;
+        }
+        return res;
+    }
+
 
 }

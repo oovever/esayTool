@@ -5,10 +5,7 @@ import com.Oovever.esayTool.io.IORuntimeException;
 import com.Oovever.esayTool.io.IoUtil;
 import com.Oovever.esayTool.io.LineHandler;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
@@ -18,8 +15,7 @@ import java.util.Collection;
  * 2018/6/9 23:11
  */
 public class FileReader extends FileWrapper {
-    /** 默认编码：UTF-8 */
-    public static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
+
     /**
      * 构造
      * @param file 文件
@@ -137,7 +133,6 @@ public class FileReader extends FileWrapper {
      *
      * @param lineHandler 行处理器
      * @throws IORuntimeException IO异常
-     * @since 3.0.9
      */
     public void readLines(LineHandler lineHandler) throws IORuntimeException{
         BufferedReader reader = null;
@@ -147,5 +142,24 @@ public class FileReader extends FileWrapper {
         } finally {
             IoUtil.close(reader);
         }
+    }
+    /**
+     * 将文件写入流中
+     *
+     * @param out 流
+     * @return File
+     * @throws IORuntimeException IO异常
+     */
+    public File writeToStream(OutputStream out) throws IORuntimeException {
+        FileInputStream in = null;
+        try {
+            in = new FileInputStream(file);
+            IoUtil.copy(in, out);
+        }catch (IOException e) {
+            throw new IORuntimeException(e);
+        } finally {
+            IoUtil.close(in);
+        }
+        return this.file;
     }
 }

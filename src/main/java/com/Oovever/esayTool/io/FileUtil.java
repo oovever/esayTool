@@ -13,6 +13,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -1829,6 +1830,21 @@ public class FileUtil {
      */
     public static void writeToStream(String fullFilePath, OutputStream out) throws IORuntimeException {
         writeToStream(touch(fullFilePath), out);
+    }
+    /**
+     * 可读的文件大小<br>
+     * 参考 http://stackoverflow.com/questions/3263892/format-file-size-as-mb-gb-etc
+     *
+     * @param size Long类型大小
+     * @return 大小
+     */
+    public static String readableFileSize(long size) {
+        if (size <= 0) {
+            return "0";
+        }
+        final String[] units = new String[] { "B", "kB", "MB", "GB", "TB", "EB" };
+        int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
+        return new DecimalFormat("#,##0.##").format(size / Math.pow(1024, digitGroups)) + " " + units[digitGroups];
     }
 
 

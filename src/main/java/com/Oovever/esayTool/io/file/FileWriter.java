@@ -3,6 +3,7 @@ package com.Oovever.esayTool.io.file;
 import com.Oovever.esayTool.io.FileUtil;
 import com.Oovever.esayTool.io.IORuntimeException;
 import com.Oovever.esayTool.io.IoUtil;
+import com.Oovever.esayTool.util.CharsetUtil;
 import com.Oovever.esayTool.util.CommonUtil;
 import com.sun.org.apache.xml.internal.serialize.LineSeparator;
 import org.junit.Assert;
@@ -10,6 +11,7 @@ import org.junit.Assert;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * 文件写入器
@@ -44,6 +46,14 @@ public class FileWriter extends FileWrapper {
         checkFile();
     }
     /**
+     * 构造
+     * @param file 文件
+     * @param charset 编码，使用 {@link CharsetUtil#charset(String)}
+     */
+    public FileWriter(File file, String charset) {
+        this(file, CharsetUtil.charset(charset));
+    }
+    /**
      * 构造<br>
      * 编码使用
      * @param file 文件
@@ -51,6 +61,84 @@ public class FileWriter extends FileWrapper {
     public FileWriter(File file) {
         this(file, DEFAULT_CHARSET);
     }
+    /**
+     * 构造
+     * @param filePath 文件路径，相对路径会被转换为相对于ClassPath的路径
+     * @param charset 编码，使用 {@link CharsetUtil}
+     */
+    public FileWriter(String filePath, Charset charset) {
+        this(FileUtil.file(filePath), charset);
+    }
+    /**
+     * 构造<br>
+     *
+     * @param filePath 文件路径，相对路径会被转换为相对于ClassPath的路径
+     */
+    public FileWriter(String filePath) {
+        this(filePath, DEFAULT_CHARSET);
+    }
+
+
+    /**
+     * 将列表写入文件，覆盖模式
+     *
+     * @param <T> 集合元素类型
+     * @param list 列表
+     * @return 目标文件
+     * @throws IORuntimeException IO异常
+     */
+    public <T> File writeLines(Collection<T> list) throws IORuntimeException {
+        return writeLines(list, false);
+    }
+    /**
+     * 将列表写入文件，追加模式
+     *
+     * @param <T> 集合元素类型
+     * @param list 列表
+     * @return 目标文件
+     * @throws IORuntimeException IO异常
+     */
+    public <T> File appendLines(Collection<T> list) throws IORuntimeException {
+        return writeLines(list, true);
+    }
+    /**
+     * 写入数据到文件
+     *
+     * @param data 数据
+     * @param off 数据开始位置
+     * @param len 数据长度
+     * @return 目标文件
+     * @throws IORuntimeException IO异常
+     */
+    public File write(byte[] data, int off, int len) throws IORuntimeException {
+        return write(data, off, len, false);
+    }
+    /**
+     * 追加数据到文件
+     *
+     * @param data 数据
+     * @param off 数据开始位置
+     * @param len 数据长度
+     * @return 目标文件
+     * @throws IORuntimeException IO异常
+     */
+    public File append(byte[] data, int off, int len) throws IORuntimeException {
+        return write(data, off, len, true);
+    }
+    /**
+     * 获得一个输出流对象
+     *
+     * @return 输出流对象
+     * @throws IORuntimeException IO异常
+     */
+    public BufferedOutputStream getOutputStream() throws IORuntimeException {
+        try {
+            return new BufferedOutputStream(new FileOutputStream(FileUtil.touch(file)));
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
+    }
+
     /**
      * 获得一个带缓存的写入对象
      *

@@ -233,33 +233,6 @@ public class FileReader extends FileWrapper {
             throw new IORuntimeException("Not a file:" + file);
         }
     }
-    /**
-     * Reader处理接口
-     *
-     * @param <T> Reader处理返回结果类型
-     */
-    public interface ReaderHandler<T> {
-        public T handle(BufferedReader reader) throws IOException;
-    }
-    /**
-     * 按照给定的readerHandler读取文件中的数据
-     *
-     * @param <T> 读取的结果对象类型
-     * @param readerHandler Reader处理类
-     * @return 从文件中read出的数据
-     * @throws IORuntimeException IO异常
-     */
-    public <T> T read(ReaderHandler<T> readerHandler) throws IORuntimeException {
-        BufferedReader reader = null;
-        T result = null;
-        try {
-            reader = FileUtil.getReader(this.file, charset);
-            result = readerHandler.handle(reader);
-        } catch (IOException e) {
-            throw new IORuntimeException(e);
-        } finally {
-            IoUtil.close(reader);
-        }
-        return result;
-    }
+
+
 }

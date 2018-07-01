@@ -1,6 +1,11 @@
 package com.Oovever.easyHttp.util;
 
 import com.Oovever.easyHttp.exception.HttpException;
+import org.apache.http.HttpHost;
+import org.apache.http.config.ConnectionConfig;
+import org.apache.http.config.SocketConfig;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.protocol.HTTP;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -15,73 +20,61 @@ import java.util.regex.Pattern;
  * 2018/6/14 19:59
  */
 public class HttpUtil {
-//    <meta> 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。
-//
-//<meta> 标签位于文档的头部，不包含任何内容。<meta> 标签的属性定义了与文档相关联的名称/值对。
-public static final Pattern CHARSET_PATTERN = Pattern.compile("<meta.*?charset=(.*?)\"");
-    /**
-     * 编码字符为 application/x-www-form-urlencoded
-     *
-     * @param content 被编码内容
-     * @param charset 编码
-     * @return 编码后的字符
-     */
-    public static String encode(String content, Charset charset) {
-        if (null == charset) {
-            charset = CharsetUtil.defaultCharset();
-        }
-        return encode(content, charset.name());
-    }
-    /**
-     * 编码字符为 application/x-www-form-urlencoded
-     *
-     * @param content 被编码内容
-     * @param charsetStr 编码
-     * @return 编码后的字符
-     * @throws HttpException 编码不支持
-     */
-    public static String encode(String content, String charsetStr) throws HttpException {
-        if (StringUtil.isBlank(content)) {
-            return content;
-        }
+//http请求连接池
+private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new PoolingHttpClientConnectionManager();
+    private static final HttpUtil HTTP_UTIL = new HttpUtil();
+//    TLS协议
+    public static final String TLS = "TLS";
+//    私有化构造函数
+    private HttpUtil() {
 
-        String encodeContent = null;
-        try {
-            encodeContent = URLEncoder.encode(content, charsetStr);
-        } catch (UnsupportedEncodingException e) {
-            throw new HttpException("Unsupported encoding:"+charsetStr, e);
-        }
-        return encodeContent;
-    }
-    /**
-     * 解码application/x-www-form-urlencoded字符
-     *
-     * @param content 被解码内容
-     * @param charset 编码
-     * @return 编码后的字符
-     */
-    public static String decode(String content, Charset charset) {
-        return decode(content, charset.name());
-    }
-    /**
-     * 解码application/x-www-form-urlencoded字符
-     *
-     * @param content 被解码内容
-     * @param charsetStr 编码
-     * @return 编码后的字符
-     */
-    public static String decode(String content, String charsetStr) {
-        if (StringUtil.isBlank(content)) {
-            return content;
-        }
-        String encodeContnt = null;
-        try {
-            encodeContnt = URLDecoder.decode(content, charsetStr);
-        } catch (UnsupportedEncodingException e) {
-            throw new HttpException("Unsupported encoding:"+charsetStr, e);
-        }
-        return encodeContnt;
     }
 
+    /**
+     * 设置连接池默认的配置
+     * @param defaultConnectionConfig  连接池默认配置
+     * @return HttpUtil对象
+     */
+    public static HttpUtil setDefaultConnectionConfig(final ConnectionConfig defaultConnectionConfig) {
+        POOL_MANAGER.setDefaultConnectionConfig(defaultConnectionConfig);
+        return HTTP_UTIL;
+    }
 
+    /**
+     * 设置默认的最大路由数(端到目的的路程)
+     * @param maxRoute 最大路由数
+     * @return HttpUtil对象
+     */
+    public static HttpUtil setDefaultMaxPerRoute(final int maxRoute){
+        POOL_MANAGER.setDefaultMaxPerRoute(maxRoute);
+        return HTTP_UTIL;
+    }
+
+    /**
+     * 设置默认的Socket配置
+     * @param defaultSocketConfig 默认的Socket配置
+     * @return HttpUtil对象
+     */
+    public static HttpUtil setDefaultSocketConfig(final SocketConfig defaultSocketConfig){
+        POOL_MANAGER.setDefaultSocketConfig(defaultSocketConfig);
+        return HTTP_UTIL;
+    }
+
+    /**
+     * 设置链接配置
+     * @param httpHost http主机地址
+     * @param connectionConfig 连接配置
+     * @return HttpUtil对象
+     */
+    public static HttpUtil setConnectionConfig(final HttpHost httpHost, final ConnectionConfig connectionConfig){
+        POOL_MANAGER.setConnectionConfig(httpHost, connectionConfig);
+        return HTTP_UTIL;
+    }
+    /**
+     * 获取默认Socket配置
+     * @return 默认的Socket配置
+     */
+    public static SocketConfig getDefaultSocketConfig(){
+        return POOL_MANAGER.getDefaultSocketConfig();
+    }
 }

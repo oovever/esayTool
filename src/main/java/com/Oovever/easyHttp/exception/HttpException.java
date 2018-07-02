@@ -15,7 +15,7 @@ public class HttpException extends RuntimeException {
         super(message);
     }
 
-    public HttpException(String message, UnsupportedEncodingException e) {
+    public HttpException(String message, Exception e) {
         super(message, e);
     }
 }

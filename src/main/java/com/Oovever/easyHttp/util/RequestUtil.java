@@ -2,21 +2,43 @@ package com.Oovever.easyHttp.util;
 
 import com.Oovever.easyHttp.exception.HttpException;
 import com.Oovever.esayTool.io.IORuntimeException;
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.conn.socket.LayeredConnectionSocketFactory;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HttpContext;
+import org.apache.http.ssl.SSLContextBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLException;
+import java.beans.BeanInfo;
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InterruptedIOException;
 import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.IdentityHashMap;
-import java.util.Map;
+import java.net.URI;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -138,5 +160,127 @@ public class RequestUtil {
             throw new HttpException("CloseableHttpClient关闭异常", e);
         }
     }
+    /**
+     * 获取LayeredConnectionSocketFactory 使用ssl单向认证
+     * @return 获取LayeredConnectionSocketFactory
+     * HttpClient4.3.x请求https的通用方法
+     */
+    public static LayeredConnectionSocketFactory getSSLSocketFactory() {
+//        SSLSocket扩展了Socket并提供SSL或者TSL套接字在TCP上加安全保护层
+        try {
+            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
+                // 信任所有
+                public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                    return true;
+                }
+            }).build();
+//在使用httpclient访问https网站的时候，经常会遇到javax.net.ssl包中的异常
+//创建不校验证书链的SSLContext
+            return new SSLConnectionSocketFactory(sslContext, NoopHostnameVerifier.INSTANCE);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+    /**
+     * NameValuePair 一个简单的类 封装一个名称/值对
+     * 把Map参数转换为List
+     * @param parameters Map类型的参数
+     * @return 转化后的List
+     */
+    public static List<NameValuePair> convertNameValuePair(final Map<String, ?> parameters) {
+        List<NameValuePair> values = new ArrayList<NameValuePair>(parameters.size());
 
+        String value = null;
+        for (Map.Entry<String, ?> parameter : parameters.entrySet()) {
+            value = parameter.getValue() == null? null : parameter.getValue().toString();
+            values.add(new BasicNameValuePair(parameter.getKey(), value));
+        }
+        return values;
+    }
+
+    /**
+     * 最大重试次数设置
+     * @param maxTimes 重试次数
+     * @return HttpRequestRetryHandler自定义 重试次数以及重试的时候业务处理
+     */
+    public static HttpRequestRetryHandler getTimesRetryHandler(final int maxTimes) {
+//        HttpRequestRetryHandler自定义 重试次数以及重试的时候业务处理
+        return new HttpRequestRetryHandler() {
+            public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
+
+                if (executionCount >= maxTimes) {
+                    // 如果超过最大重试次数，不重试
+                    return false;
+                }
+
+                if (exception instanceof InterruptedIOException) {
+                    // 超时
+                    return false;
+                }
+
+                if (exception instanceof UnknownHostException) {
+//                    未知异常
+                    return false;
+                }
+
+                if (exception instanceof ConnectTimeoutException) {
+                    // 连接被拒绝
+                    return false;
+                }
+
+                if (exception instanceof SSLException) {
+                    // SSL握手异常
+                    return false;
+                }
+
+                HttpClientContext clientContext = HttpClientContext.adapt(context);
+                HttpRequest       request       = clientContext.getRequest();
+                boolean           idempotent    = !(request instanceof HttpEntityEnclosingRequest);
+
+                if (idempotent) {
+                    // 如果请求被认为是等幂，则重试
+                    return true;
+                }
+
+                return false;
+            };
+        };
+    }
+    /**
+     * 判断给定的类型是否是简单类型
+     * @param clazz 要检查的类型
+     * @return 给定的类型是否为简单类型
+     */
+    public static boolean isSimpleValueType(Class<?> clazz) {
+//        java.lang.Class.isEnum() 当且仅当这个类被声明为在源代码中的枚举返回true。
+        return ((clazz.isPrimitive() || primitiveWrapperTypeMap.containsKey(clazz)) || clazz.isEnum() ||
+                CharSequence.class.isAssignableFrom(clazz) ||
+                Number.class.isAssignableFrom(clazz) ||
+                Date.class.isAssignableFrom(clazz) ||
+                URI.class == clazz || URL.class == clazz ||
+                Locale.class == clazz || Class.class == clazz);
+    }
+    /**
+     * 获取Class的属性列表
+     * @param clazz 要获取的Class属性列表
+     * @return class的属性列表
+     * @throws IllegalArgumentException 非法参数异常
+     */
+    public static final PropertyDescriptor[] getPropertyDescriptors(Class<?> clazz) throws IllegalArgumentException {
+        try {
+            PropertyDescriptor[] props = typeDescriptorCache.get(clazz);
+            if (props != null) {
+                return props;
+            }
+
+            BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
+            props = beanInfo.getPropertyDescriptors();
+
+            typeDescriptorCache.put(clazz, props);
+            return props;
+        } catch (IntrospectionException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
 }

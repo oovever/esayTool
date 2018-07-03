@@ -1,6 +1,7 @@
 package com.Oovever.easyHttp.util;
 
 import com.Oovever.easyHttp.exception.HttpException;
+import com.Oovever.easyHttp.request.Param;
 import com.Oovever.esayTool.io.IORuntimeException;
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
@@ -282,5 +283,35 @@ public class RequestUtil {
         } catch (IntrospectionException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    /**
+     * 把Object对象转换为请求参数,以Key/Value形式返回列表
+     * @param object 参数对象,可以是实体类,Map,List<Map> 等
+     * @return ,以Key/Value形式返回列表
+     */
+    public static List<NameValuePair> getParameters(final Object object) {
+        return getParameters(null, object);
+    }
+
+    /**
+     * 把Object对象转换为请求参数,以Key/Value形式返回列表
+     * @param name 参数名称
+     * @param object 参数对象,可以是实体类,Map,List<Map> 等
+     * @return ,以Key/Value形式返回列表
+     */
+    public static List<NameValuePair> getParameters(final String name, final Object object) {
+        List<Param> params = HttpParamUtil.create(name, object).getParams();
+
+        if (params.isEmpty()) {
+            return Collections.<NameValuePair>emptyList();
+        }
+
+        List<NameValuePair> parameters = new ArrayList<NameValuePair>(params.size());
+        for (Param param : params) {
+            parameters.add(new BasicNameValuePair(param.name, param.value));
+        }
+
+        return parameters;
     }
 }

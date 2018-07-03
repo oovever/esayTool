@@ -1,13 +1,21 @@
 package com.Oovever.easyHttp.util;
 
 import com.Oovever.easyHttp.exception.HttpException;
+import com.Oovever.easyHttp.request.BasicParameterRequest;
+import com.Oovever.easyHttp.request.BasicUriRequest;
+import com.Oovever.easyHttp.request.RequestBase;
 import org.apache.http.HttpHost;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.config.ConnectionConfig;
 import org.apache.http.config.SocketConfig;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.protocol.HTTP;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -76,5 +84,136 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
      */
     public static SocketConfig getDefaultSocketConfig(){
         return POOL_MANAGER.getDefaultSocketConfig();
+    }
+    /**
+     * 创建post请求
+     * @param url 请求地址
+     * @return post请求
+     */
+    public static RequestBase post(String url) {
+        return new BasicParameterRequest(new HttpPost(url), POOL_MANAGER);
+    }
+    /**
+     * 创建get请求
+     * @param url 请求地址
+     * @return get请求
+     */
+    public static RequestBase get(String url) {
+        return new BasicUriRequest(new HttpGet(url), POOL_MANAGER);
+    }
+    /**
+     * 创建put请求
+     * @param url 请求地址
+     * @return put请求
+     */
+    public static RequestBase put(String url) {
+        return new BasicParameterRequest(new HttpPut(url), POOL_MANAGER);
+    }
+    /**
+     * 创建delete请求
+     * @param url 请求地址
+     * @return delete请求
+     */
+    public static RequestBase delete(String url) {
+        return new BasicUriRequest(new HttpDelete(url), POOL_MANAGER);
+    }
+    /**
+     * 创建post请求
+     * @param uri 请求地址
+     * @return post请求
+     */
+    public static RequestBase post(URI uri) {
+        return post(uri.toString());
+    }
+    /**
+     * 创建get请求
+     * @param uri 请求地址
+     * @return get请求
+     */
+    public static RequestBase get(URI uri) {
+        return get(uri.toString());
+    }
+    /**
+     * 创建put请求
+     * @param uri 请求地址
+     * @return put请求
+     */
+    public static RequestBase put(URI uri) {
+        return put(uri.toString());
+    }
+    /**
+     * 创建delete请求
+     * @param uri 请求地址
+     * @return delete请求
+     */
+    public static RequestBase delete(URI uri) {
+        return delete(uri.toString());
+    }
+    /**
+     * 创建post请求
+     * @param url 请求地址
+     * @return post请求
+     */
+    public static RequestBase post(String url, RequestBase request) {
+        return new BasicParameterRequest(new HttpPost(url), request, POOL_MANAGER);
+    }
+    /**
+     * 创建get请求
+     * @param url 请求地址
+     * @return get
+     */
+    public static RequestBase get(String url, RequestBase request) {
+        return new BasicUriRequest(new HttpGet(url), request, POOL_MANAGER);
+    }
+    /**
+     * 创建put请求
+     * @param url 请求地址
+     * @return put请求
+     */
+    public static RequestBase put(String url, RequestBase request) {
+        return new BasicParameterRequest(new HttpPut(url), request, POOL_MANAGER);
+    }
+    /**
+     * 创建delete请求
+     * @param url 请求地址
+     * @return delete请求
+     */
+    public static RequestBase delete(String url, RequestBase request) {
+        return new BasicUriRequest(new HttpDelete(url), request, POOL_MANAGER);
+    }
+    /**
+     * 创建post请求
+     * @param uri 请求地址
+     * @return post请求
+     */
+    public static RequestBase post(URI uri, RequestBase request) {
+        return post(uri.toString(), request);
+    }
+
+    /**
+     * 创建get请求
+     * @param uri 请求地址
+     * @return get请求
+     */
+    public static RequestBase get(URI uri, RequestBase request) {
+        return get(uri.toString(), request);
+    }
+
+    /**
+     * 创建put请求
+     * @param uri 请求地址
+     * @return put请求
+     */
+    public static RequestBase put(URI uri, RequestBase request) {
+        return put(uri.toString(), request);
+    }
+
+    /**
+     * 创建delete请求
+     * @param uri 请求地址
+     * @return delete请求
+     */
+    public static RequestBase delete(URI uri, RequestBase request) {
+        return delete(uri.toString(), request);
     }
 }

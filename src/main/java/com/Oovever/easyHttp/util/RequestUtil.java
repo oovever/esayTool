@@ -249,7 +249,17 @@ public class RequestUtil {
         };
     }
     /**
-     * 判断给定的类型是否是简单类型
+     * isPrimitive
+     *       @see     java.lang.Boolean#TYPE
+     *       @see     java.lang.Character#TYPE
+     *       @see     java.lang.Byte#TYPE
+     *       @see     java.lang.Short#TYPE
+     *       @see     java.lang.Integer#TYPE
+     *       @see     java.lang.Long#TYPE
+     *       @see     java.lang.Float#TYPE
+     *       @see     java.lang.Double#TYPE
+     *       @see     java.lang.Void#TYPE
+     * 判断给定的类型是否是简单类型，基本类型，枚举，CharSequence，Number,Date,URI,Locale
      * @param clazz 要检查的类型
      * @return 给定的类型是否为简单类型
      */
@@ -260,7 +270,8 @@ public class RequestUtil {
                 Number.class.isAssignableFrom(clazz) ||
                 Date.class.isAssignableFrom(clazz) ||
                 URI.class == clazz || URL.class == clazz ||
-                Locale.class == clazz || Class.class == clazz);
+//               用于国际化
+                Locale.class == clazz || Locale.class == clazz);
     }
     /**
      * 获取Class的属性列表
@@ -274,10 +285,10 @@ public class RequestUtil {
             if (props != null) {
                 return props;
             }
-
+//获得一个类的BeanInfo,Introspector内部有个名为beanInfoCache的Map,每次取一个类的beanInfo时，都会在beanInfoCache中缓存。如果没有，则新创建一个。返回并加入beanInfoCache
             BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
+//            如getPropertyDescriptors()和getmethodDescriptors()得到的都是数组
             props = beanInfo.getPropertyDescriptors();
-
             typeDescriptorCache.put(clazz, props);
             return props;
         } catch (IntrospectionException e) {

@@ -246,7 +246,7 @@ public class HttpParamUtil {
         for (Param param : params) {
             uri.append('&').append(encodeUri(param.name)).append('=').append(encodeUri(param.value));
         }
-
+//        删除第一个&
         if (!params.isEmpty()) {
             uri.deleteCharAt(0);
         }
@@ -273,16 +273,16 @@ public class HttpParamUtil {
      * 添加参数
      * @param name 参数名称 ,可以是一个实体类,但不支持文件形式
      * @param value 参数值
-     * @return
+     * @return 添加结果
      */
     private HttpParamUtil addValue(String name, Object value) {
         if (value == null) {
             return this;
         }
 
-        // 简单类型
-        Class<?> clazz = value.getClass();
 
+        Class<?> clazz = value.getClass();
+        // 简单类型
         if (RequestUtil.isSimpleValueType(clazz)) {
             params.add(new Param(name, value));
             return this;
@@ -291,7 +291,7 @@ public class HttpParamUtil {
         if (clazz.isArray()) {
             int length = Array.getLength(value);
 
-            // 简单类型,直接组装
+            // 简单类型（数组）,直接组装
             if (RequestUtil.isSimpleValueType(clazz.getComponentType())) {
                 for (int i = 0; i < length; i++) {
                     params.add(new Param(name, Array.get(value, i)));
@@ -350,7 +350,7 @@ public class HttpParamUtil {
 
             return this;
         }
-
+//获取clazz类的PropertyDescriptor
         PropertyDescriptor[] descriptors = RequestUtil.getPropertyDescriptors(clazz);
 
         Object object = null;
@@ -358,11 +358,12 @@ public class HttpParamUtil {
 
         for (int i = 0; i < descriptors.length; i++) {
             readMethod = descriptors[i].getReadMethod();
+//            Java的每个类都带有一个运行时类对象，该Class对象中保存了创建对象所需的所有信息。
             if (readMethod == null || "getClass".equals(readMethod.getName())) {
                 continue;
             }
-
             try {
+//如果是Public方法
                 if (!Modifier.isPublic(readMethod.getDeclaringClass().getModifiers())) {
                     readMethod.setAccessible(true);
                 }

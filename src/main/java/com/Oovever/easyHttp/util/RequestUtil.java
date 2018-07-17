@@ -63,9 +63,8 @@ public class RequestUtil {
 //
 //    导包java.bean.*;
 //
-//    通过属性名获取对应的值，利用反射方法，如下：
     private static final ConcurrentMap<Class<?>, PropertyDescriptor[]> typeDescriptorCache = new ConcurrentHashMap<Class<?>, PropertyDescriptor[]>();
-
+//在IdentityHashMap中，判断两个键值k1和 k2相等的条件是 k1 == k2 。在正常的Map 实现（如 HashMap）中，当且仅当满足下列条件时才认为两个键 k1 和 k2 相等：(k1==null ? k2==null : e1.equals(e2))。
     private static final Map<Class<?>, Class<?>> primitiveWrapperTypeMap = new IdentityHashMap<Class<?>, Class<?>>(8){
         private static final long serialVersionUID = -3990873552652201588L;
         {
@@ -162,6 +161,7 @@ public class RequestUtil {
         }
     }
     /**
+     * 当访问url的schema为https时，调用SSL连接套接字工厂来建立连接
      * 获取LayeredConnectionSocketFactory 使用ssl单向认证
      * @return 获取LayeredConnectionSocketFactory
      * HttpClient4.3.x请求https的通用方法
@@ -170,7 +170,7 @@ public class RequestUtil {
 //        SSLSocket扩展了Socket并提供SSL或者TSL套接字在TCP上加安全保护层
         try {
             SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
-                // 信任所有
+                // 所有证书可信
                 public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
                     return true;
                 }

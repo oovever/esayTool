@@ -107,7 +107,7 @@ public class JsonUtil {
      * 把json字符串转换为指定类型的对象
      *
      * @param jsonString JSON字符串
-     * @param type JSON类型
+     * @param type JSON类型 TypeReference明确指定反序列化类型
      * @return 转化后的JSON对象
      * @throws JSONException 转化过程中出现的异常
      */

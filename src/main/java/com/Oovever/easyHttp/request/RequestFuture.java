@@ -19,7 +19,7 @@ import java.util.concurrent.TimeoutException;
  * @author OovEver
  * 2018/7/3 16:18
  */
-public class RequestFuture<V> {
+public class RequestFuture<V>   {
     /**
      * 日志
      */

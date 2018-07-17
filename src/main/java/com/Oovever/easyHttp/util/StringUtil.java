@@ -48,7 +48,6 @@ public class StringUtil {
      * 空白符包括空格、制表符、全角空格和不间断空格<br>
      * @param c 字符
      * @return 是否空白符
-     * @since 3.0.6
      */
     public static boolean isBlankChar(int c) {
         return Character.isWhitespace(c) || Character.isSpaceChar(c);
@@ -66,7 +65,7 @@ public class StringUtil {
      *
      * @param data 数据
      * @param charset 字符集，如果为空使用当前系统字符集
-     * @return 字符串
+     * @return 转化后的字符串
      */
     public static String BuffetToString(ByteBuffer data, Charset charset) {
         if (null == charset) {
@@ -208,8 +207,10 @@ public class StringUtil {
     }
 
     /**
-     * 以 conjunction 为分隔符将集合转换为字符串<br>
-     * @param stringList 分割后的字符串
+     * 以 conjunction 为分隔符将集合转换为字符串
+     * a,b,c;# a#b#c#
+     * <br>
+     * @param stringList 分割前的字符串
      * @param conjunction 连接符
      * @return 连接后的字符串
      */

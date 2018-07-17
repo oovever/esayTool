@@ -71,7 +71,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 设置链接配置
      * @param httpHost http主机地址
-     * @param connectionConfig 连接配置
+     * @param connectionConfig  连接池默认配置
      * @return HttpUtil对象
      */
     public static HttpUtil setConnectionConfig(final HttpHost httpHost, final ConnectionConfig connectionConfig){
@@ -152,6 +152,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建post请求
      * @param url 请求地址
+     * @param request 请求
      * @return post请求
      */
     public static RequestBase post(String url, RequestBase request) {
@@ -160,7 +161,8 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建get请求
      * @param url 请求地址
-     * @return get
+     * @param request 请求
+     * @return get请求
      */
     public static RequestBase get(String url, RequestBase request) {
         return new BasicUriRequest(new HttpGet(url), request, POOL_MANAGER);
@@ -168,6 +170,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建put请求
      * @param url 请求地址
+     * @param request 请求
      * @return put请求
      */
     public static RequestBase put(String url, RequestBase request) {
@@ -176,6 +179,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建delete请求
      * @param url 请求地址
+     * @param request 请求
      * @return delete请求
      */
     public static RequestBase delete(String url, RequestBase request) {
@@ -184,6 +188,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建post请求
      * @param uri 请求地址
+     * @param request 请求
      * @return post请求
      */
     public static RequestBase post(URI uri, RequestBase request) {
@@ -193,6 +198,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建get请求
      * @param uri 请求地址
+     * @param request 请求
      * @return get请求
      */
     public static RequestBase get(URI uri, RequestBase request) {
@@ -202,6 +208,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建put请求
      * @param uri 请求地址
+     * @param request 请求
      * @return put请求
      */
     public static RequestBase put(URI uri, RequestBase request) {
@@ -211,6 +218,7 @@ private static final PoolingHttpClientConnectionManager POOL_MANAGER  = new Pool
     /**
      * 创建delete请求
      * @param uri 请求地址
+     * @param request 请求
      * @return delete请求
      */
     public static RequestBase delete(URI uri, RequestBase request) {

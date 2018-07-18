@@ -36,9 +36,9 @@ public class BasicUriRequest extends RequestBase {
 
     /**
      *
-     * @param request
-     * @param req
-     * @param manager
+     * @param request 请求
+     * @param req 请求
+     * @param manager client管理器
      */
     public BasicUriRequest(HttpRequestBase request, RequestBase req, HttpClientConnectionManager manager) {
         super(request, req, manager);

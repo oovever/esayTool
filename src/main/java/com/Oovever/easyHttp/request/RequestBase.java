@@ -105,7 +105,7 @@ public abstract class RequestBase {
     }
     /**
      * 构造Request,会根据已有的AbstractRequest,
-     * 复制config, cookieStore, Header
+     * 为config, cookieStore, Header赋值
      * @param request request请求
      * @param prevReq 前一个请求
      */
@@ -311,7 +311,6 @@ public abstract class RequestBase {
     }
     /**
      * 添加Header
-     * @author mdc
      * @param value value值
      * @return RequestBase设置结果
      */
@@ -536,6 +535,7 @@ public abstract class RequestBase {
         return this;
     }
     /**
+     * 所谓JKS（Java Key Store）就是利用Java Keytool 工具生成的Keystore文件，JKS文件由公钥和密钥构成，其中的公钥就是我们所说的证书，即cer为后缀的文件，而私钥就是密钥，即以key为后缀的文件
      * 设置双向认证的JKS
      * @param jksFilePath jks文件路径
      * @param password 密码
@@ -1009,8 +1009,6 @@ public abstract class RequestBase {
     /**
      * 执行同步请求,使用默认的HttpContext
      * 带有连接池管理的HttpClient
-     * @author mdc
-     * @date 2017年6月11日
      * @return 返回一个包装了HttpResponse的对象
      */
     public ResponseWrap execute(){

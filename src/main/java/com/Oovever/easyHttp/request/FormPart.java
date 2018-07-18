@@ -28,14 +28,14 @@ public class FormPart {
      */
     private FormPart() {
         partBuilder = MultipartEntityBuilder.create();
-        //使用浏览器方式
+        //使用浏览器方式 浏览器兼容模式，即只写Content-Disposition; 使用内容charset
         partBuilder.setLaxMode();
     }
 
     /**
      * 通过AbstractRequest构造FormRequest
      * @param name 名称
-     * @param text 内容     *
+     * @param text 内容
      */
     private FormPart(String name, String text) {
         this();
@@ -151,15 +151,17 @@ public class FormPart {
      * @return FormPart对象
      */
     public FormPart addParameter(final String name, final String text) {
+//        传递数据设置为application/json,就是告诉请求的接收者，body体的数据格式是符合json格式的，接受者拿到这些数据后可以直接使用相应的格式化方法转换成处理语言识别的数据对象或者框架拦截器自动进行转换，能更早发现数据传递上的错误
+//如果直接通过text/plain传递，那么接收者需要自己执行判断怎么处理这个数据。
         return addParameter(name, text, ContentType.TEXT_PLAIN.withCharset("UTF-8"));
     }
 
     /**
      * 添加参数信息
      * @param name 参数名称
-     * @param bytes 具体内容
+     * @param bytes 此部分包含的具体内容
      * @param contentType 参数类型
-     * @param filename 文件名称
+     * @param filename 此部分包含的文件名称
      * @return FormPart对象
      */
     public FormPart addParameter(final String name, final byte[] bytes, final ContentType contentType, final String filename) {

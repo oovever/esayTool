@@ -30,6 +30,7 @@ public class BasicParameterRequest extends RequestBase {
      * 请求参数的Builder,用于Post, put请求的参数
      */
     protected     EntityBuilder                  builder;
+//    请求
     protected HttpEntityEnclosingRequestBase request;
 
     /**

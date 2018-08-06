@@ -1,1 +1,1370 @@
-test3
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>
+糗事百科 - 超搞笑的原创糗事笑话分享社区
+</title>
+<meta name="applicable-device"content="mobile">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="糗事百科是一个原创的糗事笑话分享社区,糗百网友分享的搞笑段子、搞笑图片大全,都是糗友最珍贵的开心经历,爆笑糗事笑话只在糗事百科！"/>
+
+
+<link rel="stylesheet" href="//static.qiushibaike.com/css/dist/touch/v3/index.min.css?v=a360c0c9a78cd42d171fb44f3dd6bb91"/>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?743362d4b71e22775786fbc54283175c";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+// 收集运营上缓存证据
+window.config = {
+'user_time': '2018-07-31 16:47:22',
+'version': '2017-09-04 14:36',
+'bj': 'True',
+}
+</script>
+</head>
+<body class="body_night">
+
+
+
+<header>
+<div id="suspension" class="hide">
+<img src="//static.qiushibaike.com/images/touch_v3/yuedu/suspension3@3x.png?v=bf588f5e6fadc9694ca47a725fd1664b" alt="">
+</div>
+<div id="logoBar">
+<div class="logo">
+<a href="/" onclick="_hmt.push(['_trackEvent', 'qiushi_logo', 'chick']);"></a>
+</div>
+<div class="float-nav">
+<a href="/gif/6.html" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'qiushi_top_button_01', 'chick']);">邪恶Gif</a>
+<a href="/media/" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'qiushi_top_button_02', 'chick']);">视频</a>
+<a href="/news/" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'qiushi_top_button_03', 'chick']);">排行榜</a>
+</div>
+</div>
+<nav class="top-bar clearfix">
+<a href="/" class="active" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_qiushi', 'chick']);">
+糗事
+</a>
+<a href="/hot/" class="" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_24xiaoshi', 'chick']);">
+24小时
+</a>
+<a href="/imgrank/" class="" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_retu', 'chick']);">
+热图
+</a>
+<a href="/text/" class="" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_chunwen', 'chick']);">
+纯文
+</a>
+<a href="/history/" class="endline" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_chuanyue', 'chick']);">
+穿越
+</a>
+<a href="/gif/" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_gif', 'chick']); ">GIF</a>
+<a href="https://www.qiushibaike.com/gif/6.html" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_meinvtu', 'chick']); ">热门图</a>
+<a href="/gif/6.html" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_xiee', 'chick']); ">邪恶</a>
+<a href="/news/" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_remen', 'chick']); ">热门</a>
+<a href="/gif/1.html" ref="nofollow" class="endline" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_gaoxiao', 'chick']); ">搞笑</a>
+<a href="/gif/" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_tupian', 'chick']); ">图片</a>
+<a href="/gif/" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_xiezhenji', 'chick']); ">写真集</a>
+<a href="/media/" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_shipin', 'chick']); ">视频</a>
+<a href="/media/60000/" ref="nofollow" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_meinv', 'chick']); ">美女</a>
+<a href="/media/30000/" ref="nofollow" class="endline" onclick="_hmt.push(['_trackEvent', '0qiushi_menu_egao', 'chick']); ">恶搞</a>
+</nav>
+<a href="https://toutiao.qiushibaike.com/yuedu/activity/alipayLession/?ref=touch">
+<img src="//static.qiushibaike.com/images/touch_v3/banner_alipay.png?v=f6bf4e4abbd2363d33e200ba777908f4" alt="" class="banner" style="width: 100%; border-bottom: 10px solid #F7F7F7">
+</a>
+</header>
+
+
+
+<!-- 文章列表 -->
+<main data-pagenum="13">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_long_0">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/4745371/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/474/4745371/thumb/201807052356469.JPEG?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/4745371/" class="username" ref="nofollow">那个小小败</a>
+
+womenIcon
+<div class="ageBox femaleBox">
+<i class="icon iconFemale"></i>
+<i class="age">43</i>
+</div>
+</header>
+
+<a href="/article/120755445" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-first', 'chick']);">
+
+
+下车的时候摔了一跤<br/>一路一瘸一拐的<br/>回到小区的时候，不知道谁家的熊孩子跟着我学得不亦乐乎。大声在后面叫我残废<br/>我正心想等姐好了收拾这破孩子。突然孩子的爸爸冲了过来，一脚踢在他屁股上。带着孩子上来道歉，特别诚恳<br/>“以后不能这么没礼貌。应该叫残疾人阿姨，你再学我揍死你。快去道歉”<br/>看着孩子哭成花猫了。
+…
+
+
+<span class="fullArtitle" >查看全文</span>
+
+</a>
+
+
+
+<div class="hotComment">
+<!-- 神评论 -->
+<div class="comment">
+
+<a href="/article/120755445" alt="" onclick="_hmt.push(['_trackEvent', 'list-qiushi-comment', 'chick']);">
+<div class="item">
+<i class="icon icon-hotcomment"></i>
+
+
+
+
+
+
+<span class="username">森林战队伯德：</span>
+<span class="text">有家教的好父亲，苦了你了，得一直学到消失在他们视野</span>
+<span class="favorite-wrapper">
+<i class="icon icon-favorite"></i>
+<i class="num">
+
+
+17
+</i>
+</span>
+</div>
+</a>
+</div>
+</div>
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">560</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">47</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">10</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">8</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item gif tag_gif_1">
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/funny_gif_avatar.png?v=824112a6a4edd0305b51b16beacbdeb7);" rel="nofollow"></a>
+<a href="javascript:;" class="username" rel="nofollow">搞笑GIF动图</a>
+</header>
+
+
+
+<a href="/gif/1-118506.html" class="text" onclick="_hmt.push(['_trackEvent', 'list-gif01', 'chick']);">茄子你长成这样是认真的嘛</a>
+<div class="gifBox">
+<a href="/gif/1-118506.html" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-gif01', 'chick']);">
+
+<img src="//qiubai-gif.qiushibaike.com/watermark/f9db84b73bd850254988e62b50b10bdf.gif!/gifto/jpg" alt="" class="gif" width="100%" height="auto">
+<i class="icon icon-gif">GIF</i>
+</a>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_hot_2">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/31370749/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/3137/31370749/thumb/20180725000654.jpg?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/31370749/" class="username" ref="nofollow">一丝浅笑润初颜、</a>
+
+womenIcon
+<div class="ageBox femaleBox">
+<i class="icon iconFemale"></i>
+<i class="age">101</i>
+</div>
+</header>
+
+<a href="/article/120761866" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+初中暑假回老家大伯家住几天，什么都新鲜有趣，唯独没有卫生间，得到公共茅厕去上厕所，太臭！堂姐得知我的担忧，笑道包在她身上！<br/>那天下午，她带我上山摘野果，小指头那么大，我边摘边吃，估计有一斤有多。<br/>果然，直到我回城里那天，我都没去过茅厕。<br/>后来老妈看我肚子大了，强拉着我去看医生，做了妇科检查，老妈才放下心来。最后从医生口中得知，那叫山捻子...
+
+
+
+</a>
+
+
+
+<div class="hotComment">
+<!-- 神评论 -->
+<div class="comment">
+
+<a href="/article/120761866" alt="" onclick="_hmt.push(['_trackEvent', 'list-qiushi-comment', 'chick']);">
+<div class="item">
+<i class="icon icon-hotcomment"></i>
+
+
+
+
+
+
+<span class="username">一丝浅笑润初颜、：</span>
+<span class="text">山捻子一种野果</span>
+<span class="favorite-wrapper">
+<i class="icon icon-favorite"></i>
+<i class="num">
+
+
+8
+</i>
+</span>
+</div>
+</a>
+</div>
+</div>
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">721</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">61</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">20</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">11</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_hot_3">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/10514835/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/1051/10514835/thumb/20151015193827.jpg?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/10514835/" class="username" ref="nofollow">顺河人民</a>
+
+manIcon
+<div class="ageBox maleBox">
+<i class="icon iconMale"></i>
+<i class="age">32</i>
+</div>
+</header>
+
+<a href="/article/120760510" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+言之有理……[流鼻血]
+
+
+
+</a>
+
+
+
+
+
+
+<a href="/article/120760510" rel="nofollow" class="illustration-box" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+<img src="//pic.qiushibaike.com/system/pictures/12076/120760510/medium/app120760510.jpeg" alt="" class="illustration" width="100%" height="auto">
+
+</a>
+
+
+<div class="hotComment">
+<!-- 神评论 -->
+<div class="comment">
+
+<a href="/article/120760510" alt="" onclick="_hmt.push(['_trackEvent', 'list-qiushi-comment', 'chick']);">
+<div class="item">
+<i class="icon icon-hotcomment"></i>
+
+
+
+
+
+
+<span class="username">靥笑如花：</span>
+<span class="text">要紧吗？</span>
+<span class="favorite-wrapper">
+<i class="icon icon-favorite"></i>
+<i class="num">
+
+
+10
+</i>
+</span>
+</div>
+</a>
+</div>
+</div>
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">1020</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">86</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">420</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">19</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_recent_4">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/31771240/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/3177/31771240/thumb/20160512180905.jpg?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/31771240/" class="username" ref="nofollow">每顿吃五碗饭</a>
+
+manIcon
+<div class="ageBox maleBox">
+<i class="icon iconMale"></i>
+<i class="age">30</i>
+</div>
+</header>
+
+<a href="/article/120763654" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+跟老婆接视频，刚好2岁半的儿子也在旁边！歪着头对着视频甜甜的叫了一声爸爸！<br/>我正要夸他，老婆在儿子头上拍一拍逗他说:看清楚，这不是你爸爸！<br/>儿子狐疑的再看了我一眼，试探性的叫一声:叔叔？
+
+
+
+</a>
+
+
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">4130</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">35</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">10</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">5</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item gif tag_gif_d_5">
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/funny_gif_avatar.png?v=824112a6a4edd0305b51b16beacbdeb7);" rel="nofollow"></a>
+<a href="javascript:;" class="username" rel="nofollow">搞笑GIF动图</a>
+</header>
+
+
+
+<a href="/gif/?rs_id=176498" class="text" onclick="_hmt.push(['_trackEvent', 'list-gif02', 'chick']);">这件短袖不错，夏天妹子喜欢穿</a>
+<div class="gifBox">
+<a href="/gif/?rs_id=176498" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-gif02', 'chick']);">
+
+<img src="//qiubai-gif.qiushibaike.com/watermark/62f749316a04d34f5ef617d4383ab45e.gif!/gifto/jpg" alt="" class="gif" width="100%" height="auto">
+<i class="icon icon-gif">GIF</i>
+</a>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item news tag_news_6">
+
+
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/qiushi_news_avatar.png?v=c8cd7c8432ad9420408ed749260669c4);"></a>
+<a href="javascript:;" class="username">糗事精选</a>
+</header>
+<a href="https://toutiao.qiushibaike.com/yuedu/details?cate=gaoxiao&id=100494&ref=touch" class="text" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news01', 'chick']);">
+幽默漫画：不许在上风向大号
+……<span class="fullArtitle">查看全文</span>
+</a>
+<a href="https://toutiao.qiushibaike.com/yuedu/details?cate=gaoxiao&id=100494&ref=touch" class="imgs-box" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news01', 'chick']);">
+<div class="img-wrapper flex flex-direction-column">
+<div class="row row1 flex">
+
+
+
+
+
+<div class="row1 block margin-right" style="background-image: url(https://news-pic.qiushibaike.com/source/cab5024a101c50549b90070a9aa04a8b.jpeg!/gifto/jpg/quality/75)" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news01-img', 'chick']);"></div>
+
+
+<div class="row1 block margin-right" style="background-image: url(https://news-pic.qiushibaike.com/source/5aa531b9822437653ac00d0770ec9e95.jpeg!/gifto/jpg/quality/75)" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news01-img', 'chick']);"></div>
+
+
+<div class="row1 block margin-right" style="background-image: url(https://news-pic.qiushibaike.com/source/8e7445231d4c568400f67d7bca3e3371.jpeg!/gifto/jpg/quality/75)" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news01-img', 'chick']);"></div>
+
+
+</div>
+</div>
+
+<i class="icon icon-news">长图</i>
+</a>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_old_7">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/24744020/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/2474/24744020/thumb/2016111808170682.JPEG?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/24744020/" class="username" ref="nofollow">肆ˇ木</a>
+
+manIcon
+<div class="ageBox maleBox">
+<i class="icon iconMale"></i>
+<i class="age">28</i>
+</div>
+</header>
+
+<a href="/article/114431576" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+有木有那么一刻，打出一个字的拼音翻了好多页也没有找到，于是乎，打了带这个字的词组，很快出现，然后删掉另一个不需要的字，真尼玛累……
+
+
+
+</a>
+
+
+
+<div class="hotComment">
+<!-- 神评论 -->
+<div class="comment">
+
+<a href="/article/114431576" alt="" onclick="_hmt.push(['_trackEvent', 'list-qiushi-comment', 'chick']);">
+<div class="item">
+<i class="icon icon-hotcomment"></i>
+
+
+
+
+
+
+<span class="username">你妹的节操在哪：</span>
+<span class="text">呃    原来不是我一个人这样</span>
+<span class="favorite-wrapper">
+<i class="icon icon-favorite"></i>
+<i class="num">
+
+
+11
+</i>
+</span>
+</div>
+</a>
+</div>
+</div>
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">16766</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">1425</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">480</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">275</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_hot_8">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/19611963/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/1961/19611963/thumb/20160117014420.jpg?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/19611963/" class="username" ref="nofollow">受伤de孤狼</a>
+
+manIcon
+<div class="ageBox maleBox">
+<i class="icon iconMale"></i>
+<i class="age">30</i>
+</div>
+</header>
+
+<a href="/article/120751843" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+去上班的那条路上有了条狗，很凶。很多人就以这个为借口，想请假。包括我。我打电话：经理，路上那条狗看见我就吼，吓死我了。经理：你做单身狗几十年了，它做狗才几年？你比它资格老，怕它干什么？赶紧来。我：哦。
+
+
+
+</a>
+
+
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">976</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">82</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">10</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">9</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_recent_9">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/37168772/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/3716/37168772/thumb/2018061221310498.JPEG?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/37168772/" class="username" ref="nofollow">名子太俊不提也罢</a>
+
+manIcon
+<div class="ageBox maleBox">
+<i class="icon iconMale"></i>
+<i class="age">34</i>
+</div>
+</header>
+
+<a href="/article/120763305" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+还好取向正常
+
+
+
+</a>
+
+
+
+
+
+
+<a href="/article/120763305" rel="nofollow" class="illustration-box" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+<img src="//pic.qiushibaike.com/system/pictures/12076/120763305/medium/app120763305.jpeg" alt="" class="illustration" width="100%" height="auto">
+
+</a>
+
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">2410</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">20</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">10</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">0</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item gif tag_gif_10">
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/funny_gif_avatar.png?v=824112a6a4edd0305b51b16beacbdeb7);" rel="nofollow"></a>
+<a href="javascript:;" class="username" rel="nofollow">搞笑GIF动图</a>
+</header>
+
+
+
+<a href="/gif/6-132199.html" class="text" onclick="_hmt.push(['_trackEvent', 'list-gif03', 'chick']);"></a>
+<div class="gifBox">
+<a href="/gif/6-132199.html" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-gif03', 'chick']);">
+
+<img src="//qiubai-gif.qiushibaike.com/watermark/08fd9c2222cb09b7976c3978c9a77a87.gif!/gifto/jpg" alt="" class="gif" width="100%" height="auto">
+<i class="icon icon-gif">GIF</i>
+</a>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item news tag_news_d_11">
+
+
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/qiushi_news_avatar.png?v=c8cd7c8432ad9420408ed749260669c4);"></a>
+<a href="javascript:;" class="username">糗事精选</a>
+</header>
+<a href="https://toutiao.qiushibaike.com/yuedu/details?cate=gaoxiao&id=100705&ref=touch" class="text" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news02', 'chick']);">
+第一次开车撞树上了！说出来你可能不信，是树先动手的！
+……<span class="fullArtitle">查看全文</span>
+</a>
+<a href="https://toutiao.qiushibaike.com/yuedu/details?cate=gaoxiao&id=100705&ref=touch" class="imgs-box" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news02', 'chick']);">
+<div class="img-wrapper flex flex-direction-column">
+<div class="row row1 flex">
+
+
+
+
+
+<div class="row1 block margin-right" style="background-image: url(https://news-pic.qiushibaike.com/source/40e08301e4fd4044d4a1a2ab12788291.jpeg!/gifto/jpg/quality/75)" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news02-img', 'chick']);"></div>
+
+
+<div class="row1 block margin-right" style="background-image: url(https://news-pic.qiushibaike.com/source/4525df48ba3aae705b72806a787049fd.jpeg!/gifto/jpg/quality/75)" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news02-img', 'chick']);"></div>
+
+
+<div class="row1 block margin-right" style="background-image: url(https://news-pic.qiushibaike.com/source/ef44a5080e2f418f97f29c07e9ea699f.jpeg!/gifto/jpg/quality/75)" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news02-img', 'chick']);"></div>
+
+
+</div>
+</div>
+
+<i class="icon icon-news">长图</i>
+</a>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_hot_12">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/8737794/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/873/8737794/thumb/20180714103504.jpg?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/8737794/" class="username" ref="nofollow">你的小腰精</a>
+
+womenIcon
+<div class="ageBox femaleBox">
+<i class="icon iconFemale"></i>
+<i class="age">100</i>
+</div>
+</header>
+
+<a href="/article/120759920" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+老公假期结束，即将去外地工作，我心里依依不舍，对他命令：离开前每分每秒都要和我在一起，干什么都不许分开……<br/>老公同意了，这不～非把我拽进卫生间陪他拉   屎，我扒着门框努力挣   脱……
+
+
+
+</a>
+
+
+
+<div class="hotComment">
+<!-- 神评论 -->
+<div class="comment">
+
+<a href="/article/120759920" alt="" onclick="_hmt.push(['_trackEvent', 'list-qiushi-comment', 'chick']);">
+<div class="item">
+<i class="icon icon-hotcomment"></i>
+
+
+
+
+
+
+<span class="username">爱新觉罗.黄瓜：</span>
+<span class="text">他只是想让你去给他擦屁 股，你别想多了</span>
+<span class="favorite-wrapper">
+<i class="icon icon-favorite"></i>
+<i class="num">
+
+
+33
+</i>
+</span>
+</div>
+</a>
+</div>
+</div>
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">3428</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">291</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">80</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">31</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_hot_13">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/12992639/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/1299/12992639/thumb/20180519105602.JPEG?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/12992639/" class="username" ref="nofollow">胖香</a>
+
+womenIcon
+<div class="ageBox femaleBox">
+<i class="icon iconFemale"></i>
+<i class="age">101</i>
+</div>
+</header>
+
+<a href="/article/120763315" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+看新闻，说一女的坐牢半年减肥30斤，我说我想坐牢!半年就行!<br/>我哥坚决反对，说我疯了，我叫他别担心，我减30斤就满足了，不会有事的!<br/>我哥说：“你吃不饱肯定会抢别人的饭，你以为牢里的人会像我这样让着你吗？”
+
+
+
+</a>
+
+
+
+<div class="hotComment">
+<!-- 神评论 -->
+<div class="comment">
+
+<a href="/article/120763315" alt="" onclick="_hmt.push(['_trackEvent', 'list-qiushi-comment', 'chick']);">
+<div class="item">
+<i class="icon icon-hotcomment"></i>
+
+
+
+
+
+
+<span class="username">吃了两碗又盛：</span>
+<span class="text">我觉得最不好操作的是，怎么样能恰好判六个月。</span>
+<span class="favorite-wrapper">
+<i class="icon icon-favorite"></i>
+<i class="num">
+
+
+16
+</i>
+</span>
+</div>
+</a>
+</div>
+</div>
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">807</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">68</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">40</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">22</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item media tag_video_14">
+
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/funny_video_avatar.png?v=e1a48b2ccab92a512d2b90c2b0e8f980);"></a>
+<a href="javascript:;" class="username">搞笑视频</a>
+</header>
+<a href="/media/30000_544372.html" class="text" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-media01', 'chick']);">小子，你这是在侮辱谁的智商呢？</a>
+<div class="mediaBox">
+<a href="/media/30000_544372.html" onclick="_hmt.push(['_trackEvent', 'list-media01', 'chick']);">
+
+<img src="//qb-media.qiushibaike.com/snapshot/6ddb903fb603f12622116d028c84f1e7.jpg" alt="" class="media" width="100%" height="auto">
+<i class="icon icon-media"></i>
+<i class="icon icon-media2">视频</i>
+</a>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_recent_15">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/37949906/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/3794/37949906/thumb/2018041821543947.JPEG?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/37949906/" class="username" ref="nofollow">滕州内涵还我初心</a>
+
+manIcon
+<div class="ageBox maleBox">
+<i class="icon iconMale"></i>
+<i class="age">35</i>
+</div>
+</header>
+
+<a href="/article/120763120" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+等等，我好像……
+
+
+
+</a>
+
+
+
+
+
+
+<a href="/article/120763120" rel="nofollow" class="illustration-box" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+<img src="//pic.qiushibaike.com/system/pictures/12076/120763120/medium/app120763120.jpeg" alt="" class="illustration" width="100%" height="auto">
+
+</a>
+
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">2180</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">18</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">10</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">0</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item gif tag_gif_d_16">
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/funny_gif_avatar.png?v=824112a6a4edd0305b51b16beacbdeb7);" rel="nofollow"></a>
+<a href="javascript:;" class="username" rel="nofollow">搞笑GIF动图</a>
+</header>
+
+
+
+<a href="/gif/?rs_id=139788" class="text" onclick="_hmt.push(['_trackEvent', 'list-gif04', 'chick']);"></a>
+<div class="gifBox">
+<a href="/gif/?rs_id=139788" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-gif04', 'chick']);">
+
+<img src="//qiubai-gif.qiushibaike.com/watermark/15f66cf3cc2eb35b662c75c0fa2db95a.gif!/gifto/jpg" alt="" class="gif" width="100%" height="auto">
+<i class="icon icon-gif">GIF</i>
+</a>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_old_17">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/28594862/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/2859/28594862/thumb/2016081220595485.JPEG?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/28594862/" class="username" ref="nofollow">我就静静的侃着你</a>
+
+manIcon
+<div class="ageBox maleBox">
+<i class="icon iconMale"></i>
+<i class="age">21</i>
+</div>
+</header>
+
+<a href="/article/114432177" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+上语文课，讲诗。老师刚念出某诗一句：“红了樱桃，绿了芭蕉。” 角落一神人，接了一句：“黑了木耳，软了香蕉。”全班爆笑
+
+
+
+</a>
+
+
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">2797</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">237</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">400</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">38</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item news tag_news_18">
+
+
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+<a href="javascript:;" class="avatar" style="background-image: url(//static.qiushibaike.com/images/touch_v3/qiushi_news_avatar.png?v=c8cd7c8432ad9420408ed749260669c4);"></a>
+<a href="javascript:;" class="username">糗事精选</a>
+</header>
+<a href="https://toutiao.qiushibaike.com/yuedu/details?cate=gaoxiao&id=100460&ref=touch" class="text" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news03', 'chick']);">
+从一数到十，就好！
+……<span class="fullArtitle">查看全文</span>
+</a>
+<a href="https://toutiao.qiushibaike.com/yuedu/details?cate=gaoxiao&id=100460&ref=touch" class="imgs-box" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news03', 'chick']);">
+<div class="img-wrapper flex flex-direction-column">
+<div class="row row1 flex">
+
+
+
+
+
+<div class="row1 block margin-right" style="background-image: url(https://news-pic.qiushibaike.com/source/648572050a392b5b2eb9a736720c3b7a.jpeg!/gifto/jpg/quality/75)" onclick="_hmt.push(['_trackEvent', 'list-qiushi-news03-img', 'chick']);"></div>
+
+
+</div>
+</div>
+
+<i class="icon icon-news">长图</i>
+</a>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_hot_19">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/8737794/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/873/8737794/thumb/20180714103504.jpg?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/8737794/" class="username" ref="nofollow">你的小腰精</a>
+
+womenIcon
+<div class="ageBox femaleBox">
+<i class="icon iconFemale"></i>
+<i class="age">100</i>
+</div>
+</header>
+
+<a href="/article/120761872" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+午休，闺女不想睡，各种闹腾，我和老公困得不行，就不理会她，她闹一会儿就去客厅看电视了。<br/>下午出去玩儿，邻居打着哈欠问我：你们家孩子睡午觉吗？<br/>闺女抢着回答：没睡，妈妈让我在客厅看电视，她和爸爸在房间睡   觉……
+
+
+
+</a>
+
+
+
+<div class="hotComment">
+<!-- 神评论 -->
+<div class="comment">
+
+<a href="/article/120761872" alt="" onclick="_hmt.push(['_trackEvent', 'list-qiushi-comment', 'chick']);">
+<div class="item">
+<i class="icon icon-hotcomment"></i>
+
+
+
+
+
+
+<span class="username">醉酒舞剑砍疯子.：</span>
+<span class="text">三秒钟就睡醒了</span>
+<span class="favorite-wrapper">
+<i class="icon icon-favorite"></i>
+<i class="num">
+
+
+15
+</i>
+</span>
+</div>
+</a>
+</div>
+</div>
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">1479</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">125</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">40</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">18</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="item tiezi tag_recent_20">
+
+
+<header>
+<!-- 头像、用户名、年龄 -->
+
+<a href="/users/24003169/" class="avatar" style="background-image: url(//pic.qiushibaike.com/system/avtnew/2400/24003169/thumb/20180306093405.JPEG?imageView2/1/w/90/h/90)" ref="nofollow"></a>
+<a href="/users/24003169/" class="username" ref="nofollow">无奈恋上你的chu…</a>
+
+womenIcon
+<div class="ageBox femaleBox">
+<i class="icon iconFemale"></i>
+<i class="age">30</i>
+</div>
+</header>
+
+<a href="/article/120763509" class="text" onclick="_hmt.push(['_trackEvent', 'list-qiushi-content', 'chick']);">
+
+
+小妹暑假到我们公司跟我后面打零工，怕累着她，所有粗活重活全我干。<br/>一个多月下来，她看我的眼神明显不同了，好几次欲言又止，这天终于忍不住了，拉着我说:“姐，我长大了，不想让你操心了，你能不能……把我的工资给我。。。”
+
+
+
+</a>
+
+
+
+<div class="iconBox">
+<!-- 笑脸、评论数等 -->
+
+
+
+<div class="box"><i class="icon icon-laugh"></i><i class="num">4890</i></div>
+
+<div class="box"><i class="icon icon-boring"></i><i class="num">41</i></div>
+
+<div class="box"><i class="icon icon-share"></i><i class="num">30</i></div>
+<div class="box"><i class="icon icon-comment"></i><i class="num">4</i></div>
+</div>
+</article>
+
+
+
+
+
+
+
+
+</main>
+
+<div class="common-loader hide">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+<div id="tips-box" class="hide">
+<div class="tips">
+<i class="icon icon-cring"></i>
+<span>没有更多数据了，请手动刷新当前网页</span>
+</div>
+<a href="#" class="refresh">点击刷新</a>
+</div>
+
+
+
+<!-- footer -->
+<footer id="footerBox">
+<p class="text1">请使用当前浏览器底部中间的“<strong>添加书签</strong>”功能进行收藏</p>
+<p class="text2"><strong>糗事百科</strong>-超搞笑的原创糗事笑话分享社区</p>
+</footer>
+
+
+
+<!-- 回到顶部按钮 -->
+<div id="floatBtn">
+<a href="javascript:void()" class="bxtt-pocket hide"></a>
+<a href="javascript:void()" class="game hide" rel="nofollow"></a>
+<a href="/new4/suggest" class="feedback" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'touch-qiushi-list-suggest', 'chick']); "></a>
+<a href="javascript:;" class="goTop" rel="nofollow" onclick="_hmt.push(['_trackEvent', 'touch-qiushi-list-back-top', 'chick']); "></a>
+</div>
+
+
+
+<script type="text/javascript" src="https://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">
+window.broadJson = '[{&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2602149&#39;;var custom_layout=&#39;true&#39;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;25&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 12:14:23&quot;, &quot;channel&quot;: &quot;oppoweb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;//becode.qiushibaike.com/ca3a1ecf99f0caf738db1c7582affa32f71bf3d41128ea38e01e382fd2e6ebd9ec.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 18:41:27&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;39&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 18:41:27&quot;, &quot;channel&quot;: &quot;nby&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;//becode.qiushibaike.com/zt3a1ecf98f7caf631db1c7582affa32f71bf3d41128ea38e01e382fd2e6ebd9ec.js&quot;, &quot;start_time&quot;: &quot;2017-08-02 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;54&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 17:08:42&quot;, &quot;channel&quot;: &quot;dbwifi&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/gbqddhhkjeix.js &quot;, &quot;start_time&quot;: &quot;2017-08-01 18:46:06&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;45&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 18:46:06&quot;, &quot;channel&quot;: &quot;&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2949547&#39;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 18:43:52&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;42&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 18:43:52&quot;, &quot;channel&quot;: &quot;bdwp&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/w4djpni8de.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 18:44:40&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;43&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 18:44:40&quot;, &quot;channel&quot;: &quot;mzleb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;//becode.qiushibaike.com/wc3a1ece90f4caf23adb1c7582affa32f71bf3d41128ea38e01e382fd2e6ebd9ec.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 18:42:19&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;40&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 18:42:19&quot;, &quot;channel&quot;: &quot;leshiweb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2949860&#39;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 18:43:08&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;41&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 18:43:08&quot;, &quot;channel&quot;: &quot;zyleb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2887441&#39;;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-top&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-08 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;64&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-08 18:46:15&quot;, &quot;channel&quot;: &quot;zhisdhagn&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2887323&#39;;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-07-31 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;13&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-07-31 15:44:56&quot;, &quot;channel&quot;: &quot;zhisdhagn&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2602150&#39;;var custom_layout=&#39;true&#39;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-07-31 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;12&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-07-31 15:41:18&quot;, &quot;channel&quot;: &quot;oppoweb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2949861&#39;;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;20&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 11:32:33&quot;, &quot;channel&quot;: &quot;zyleb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2897006&#39;;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-28 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;14&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-07-31 15:46:04&quot;, &quot;channel&quot;: &quot;nby&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cdn.aiclicash.com/jssdk/aisdk.js?v=1?aid=7311245&quot;, &quot;start_time&quot;: &quot;2017-08-01 19:01:33&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;其他&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;48&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 19:01:33&quot;, &quot;channel&quot;: &quot;&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;//becode.qiushibaike.com/xd3a1ece90f4caf23bdb1c7582affa32f71bf3d41128ea38e01e382fd2e6ebd9ec.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 19:00:33&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;46&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 19:00:33&quot;, &quot;channel&quot;: &quot;leshiweb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot; &quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/x5da7vcxtm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 19:01:11&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;47&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 19:01:11&quot;, &quot;channel&quot;: &quot;mzleb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2949549&#39;;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;29&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 14:54:19&quot;, &quot;channel&quot;: &quot;bdwp&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-center&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;//becode.qiushibaike.com/id3a1ecf98f6c9f530db1c7582affa32f71bf3d41128ea38e01e382fd2e6ebd9ec.js&quot;, &quot;start_time&quot;: &quot;2017-08-02 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;55&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 17:10:17&quot;, &quot;channel&quot;: &quot;dbwifi&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u3028919&#39;;var custom_layout=&#39;true&#39;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-three&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;18&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 11:09:37&quot;, &quot;channel&quot;: &quot;oppoweb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-three&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/xkdb3so992.js&quot;, &quot;start_time&quot;: &quot;2017-07-31 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;15&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-07-31 15:47:18&quot;, &quot;channel&quot;: &quot;zhisdhagn&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/cxpdydfmpaedgm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;24&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 12:12:15&quot;, &quot;channel&quot;: &quot;&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/mbdrpv7cea.js&quot;, &quot;start_time&quot;: &quot;2017-08-02 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;56&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 17:10:56&quot;, &quot;channel&quot;: &quot;dbwifi&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/rgdh5vwrea.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;21&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 11:38:48&quot;, &quot;channel&quot;: &quot;zhisdhagn&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/mbdrpv7cea.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;49&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 16:36:53&quot;, &quot;channel&quot;: &quot;leshiweb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&lt;script&gt;var cpro_id = &#39;u2962559&#39;;var custom_layout=&#39;true&#39;&lt;/script&gt;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://cpro.baidustatic.com/cpro/ui/cm.js&quot;, &quot;start_time&quot;: &quot;2017-08-01 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;百度联盟&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;30&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-01 14:54:33&quot;, &quot;channel&quot;: &quot;oppoweb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/mbdrpv7cea.js&quot;, &quot;start_time&quot;: &quot;2017-08-02 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;51&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 16:51:18&quot;, &quot;channel&quot;: &quot;zyleb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/mbdrpv7cea.js&quot;, &quot;start_time&quot;: &quot;2017-08-02 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;50&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 16:45:56&quot;, &quot;channel&quot;: &quot;nby&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/mbdrpv7cea.js&quot;, &quot;start_time&quot;: &quot;2017-08-02 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;53&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 17:04:27&quot;, &quot;channel&quot;: &quot;bdwp&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;touch-list-new&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/mbdrpv7cea.js&quot;, &quot;start_time&quot;: &quot;2017-08-02 00:00:00&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-08-31 00:00:00&quot;, &quot;id&quot;: &quot;52&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-08-02 16:57:03&quot;, &quot;channel&quot;: &quot;mzleb&quot;}, {&quot;status&quot;: &quot;3&quot;, &quot;code&quot;: &quot;&quot;, &quot;name&quot;: &quot;oppo-touch-list-news&quot;, &quot;count_id&quot;: &quot;&quot;, &quot;url&quot;: &quot;https://becode.qiushibaike.com/hcuikreuyfjzb.js&quot;, &quot;start_time&quot;: &quot;2017-09-12 17:16:10&quot;, &quot;system&quot;: &quot;notlimited&quot;, &quot;site&quot;: &quot;qiushi_new&quot;, &quot;master&quot;: &quot;糗百&quot;, &quot;end_time&quot;: &quot;2018-09-12 17:16:10&quot;, &quot;id&quot;: &quot;132&quot;, &quot;position&quot;: &quot;&quot;, &quot;created_at&quot;: &quot;2017-09-12 17:17:02&quot;, &quot;channel&quot;: &quot;oppoweb&quot;}]'
+</script>
+<script type="text/javascript" src="//static.qiushibaike.com/js/dist/touch/v3/index.min.js?v=09d9d0fd79897325d6088b73dc40ca4d"></script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-8780108-10', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+</body>
+</html>

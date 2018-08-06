@@ -36,6 +36,7 @@ public class FileWriterTest {
     }
     /**
      * 测试覆盖写入集合
+     *
      */
     @Test
     public void testWriteCollection() {
